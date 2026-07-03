@@ -1,283 +1,191 @@
-# 🚗 Garage Management System
+# ☕ Store_Online
 
-Modern Garage Management System built with **WPF .NET 8**, **Laravel 13 API**, and **MySQL Database**.
+Modern **Multi-Business Management System** built with **WPF (.NET 8)**, **Laravel 13 REST API**, and **MySQL**.
 
-A complete business management solution designed for garages, POS systems, coffee shops, and multi-branch businesses.
-
----
-
-## ✨ Features
-
-### 🔐 Authentication
-
-* User Login
-* API Authentication
-* Laravel Sanctum Token
-* Change Password
-* User Profile
-
-### 🏢 Branch Management
-
-* Main Branch
-* Sub Branch
-* Multi-Branch Support
-* Branch Configuration
-
-### 👥 User Management
-
-* User Roles
-* User Permissions
-* Activity Logs
-* Access Control
-
-### 📊 Dashboard
-
-* Sales Overview
-* Customer Statistics
-* Product Statistics
-* Branch Statistics
-* Recent Activities
-
-### 🎨 Modern UI
-
-* Material Design
-* Responsive Layout
-* Modern Dashboard
-* Dark/Light Theme Ready
-* Professional Icons
-
-### 🔄 Auto Update
-
-* GitHub Release Check
-* Version Control
-* Update Notification
-* Download Latest Version
+> A single desktop platform designed to support multiple business domains including **Coffee Shop (POS)**, **Garage**, **Hotel/Resort**, and future modules through a shared architecture.
 
 ---
 
-## 🛠 Technology Stack
+# ✨ Current Features
 
-### Frontend
+## 🔐 Authentication
+- Login via Laravel REST API
+- Token-based authentication
+- User Profile
+- Change Password
+- Logout with custom confirmation dialog
+- Session management (in progress)
 
-* WPF .NET 8
-* C#
-* XAML
-* Material Design In XAML Toolkit
+## 🖥 Desktop UI
+- WPF (.NET 8)
+- Material Design in XAML
+- Modern dashboard
+- Sidebar navigation
+- Status bar
+- Responsive layouts
+- Professional icons
 
-### Backend
+## 🔔 Alert Framework
 
-* Laravel 13
-* PHP 8.4+
-* REST API
-* Laravel Sanctum
+Custom reusable alert framework.
 
-### Database
+### Notification
+- Success
+- Error
+- Warning
+- Information
 
-* MySQL
-* Stored Procedures
-* Views
+### Dialog
+- Confirm Logout
+- Confirm Delete
+- Confirm Save
+- Confirm Update
+- Custom Yes / No
 
-### Tools
-
-* Visual Studio 2026 Enterprise
-* Visual Studio Code
-* GitHub
-* Postman
+Future:
+- Input Dialog
+- Progress Dialog
+- Loading Overlay
 
 ---
 
-## 🏗 System Architecture
+# 🏗 Project Structure
 
 ```text
-WPF Desktop Application
-           │
-           ▼
-      REST API
-           │
-           ▼
-      Laravel 13
-           │
-           ▼
-         MySQL
-```
-
----
-
-## 📂 Project Structure
-
-```text
-GarageManagementSystem
-│
-├── Assets
-│   ├── Icons
-│   └── Images
+Store_Online
 │
 ├── Alerts
-├── Class
+│   ├── Base
+│   ├── Dialogs
+│   ├── Models
+│   ├── Services
+│   └── Controls
+│
+├── Assets
+├── Controls
+├── MainForms
 ├── Models
+├── Modules
+├── Resources
 ├── Services
-├── Dashboard
+│   └── ApiService.cs
+├── Styles
 ├── Users
-├── Reports
+├── Views
 │
-├── MainWindow.xaml
-├── FrmUserLogin.xaml
 ├── App.xaml
-│
-└── README.md
+└── MainWindow.xaml
 ```
 
 ---
 
-## 🔑 API Authentication
+# ☕ Current Modules
 
-### Login Request
+## Coffee POS
+- Login
+- Dashboard
+- POS
+- Products
+- Reports
+- Users
+- Settings
 
-```http
-POST /api/v1/login
-```
+## Garage
+- Under Development
 
-### Request Body
+## Hotel / Resort
+- Under Development
 
-```json
-{
-  "username": "admin",
-  "password": "123456"
-}
-```
+---
 
-### Response
+# 🌐 Backend
 
-```json
-{
-  "success": true,
-  "message": "Login Successfully",
-  "token": "xxxxxxxxxxxxxxxx",
-  "user": {
-    "userid": "001",
-    "name": "Administrator"
-  }
-}
+- Laravel 13
+- REST API
+- MySQL
+- JSON API
+- Authentication
+- Multi-module ready
+
+---
+
+# 🛠 Technology
+
+## Frontend
+- WPF .NET 8
+- C#
+- XAML
+- Material Design in XAML
+
+## Backend
+- Laravel 13
+- PHP 8+
+- REST API
+
+## Database
+- MySQL
+
+---
+
+# 🚀 Architecture
+
+```text
+WPF Desktop
+      │
+      ▼
+ApiService
+      │
+      ▼
+Laravel REST API
+      │
+      ▼
+MySQL
 ```
 
 ---
 
-## 📡 API Modules
+# 📋 Roadmap
 
-| Module             | Endpoint                              |
-| ------------------ | ------------------------------------- |
-| Login              | POST /api/v1/login                    |
-| Profile            | GET /api/v1/profile                   |
-| Products           | GET /api/v1/products                  |
-| Store Registration | POST /api/v1/store/register           |
-| System Information | GET /api/v1/setting/combo/system_info |
+## Completed
+- WPF project structure
+- Laravel API integration
+- Material Design UI
+- Notification Service
+- Dialog Service
+- Custom confirmation dialogs
+- Login window
+- Main windows
+- Multi-language foundation (RESX)
+- Modular architecture foundation
 
----
+## In Progress
+- Permission system
+- Session service
+- Navigation service
+- Loading service
+- Input dialog
+- Progress dialog
 
-## 💻 Installation
-
-### Clone Repository
-
-```bash
-git clone https://github.com/reanprogramming/garage-system.git
-```
-
-### Open Project
-
-```bash
-Visual Studio 2026 Enterprise
-```
-
-### Restore Packages
-
-```bash
-dotnet restore
-```
-
-### Build Project
-
-```bash
-dotnet build
-```
-
-### Run Project
-
-```bash
-dotnet run
-```
+## Planned
+- Garage module
+- Hotel module
+- Resort module
+- Inventory
+- Reports
+- Auto update
+- Mobile application
 
 ---
 
-## 📸 Screenshots
-
-### Login Screen
-
-* Modern Material Design UI
-* API Authentication
-* User Validation
-
-### Dashboard
-
-* Statistics Cards
-* Quick Actions
-* Business Overview
-
----
-
-## 🚀 Roadmap
-
-### Completed
-
-* User Login
-* Laravel API Integration
-* Material Design UI
-* Branch Management
-* User Management
-* Dashboard
-
-### Upcoming
-
-* Sales Module
-* Inventory Module
-* Purchase Module
-* Reporting Module
-* Telegram Notifications
-* Flutter Mobile Application
-* Online Synchronization
-
----
-
-## 📱 Future Mobile Application
-
-Flutter Mobile App:
-
-* Android Support
-* iOS Support
-* Material 3 Design
-* API Integration
-* Dashboard
-* Products
-* Sales Reports
-
----
-
-## 👨‍💻 Developer
+# 👨‍💻 Developer
 
 **JOIN CODER**
 
 GitHub:
 https://github.com/reanprogramming
 
-Telegram:
-https://t.me/reansourcecode
-
-YouTube:
-https://youtube.com/@joincoder
-
 ---
 
-## 📄 License
+# 📄 License
 
-This project is licensed under the MIT License.
-
-Copyright © 2026 JOIN CODER.
+MIT License
