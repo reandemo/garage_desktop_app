@@ -1,0 +1,136 @@
+<Page x:Class="Store_Online.Modules.Coffee.Pages.OrderPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:Store_Online.Modules.Coffee.Pages"
+      xmlns:ui="clr-namespace:Store_Online.Shared.UI.Controls"
+      mc:Ignorable="d"
+      Title="OrderPage">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+
+        <Grid Margin="20">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!-- Header -->
+
+            <StackPanel Margin="0,0,0,25">
+
+                <TextBlock Text="☕ Rean Button Showcase"
+                           FontSize="28"
+                           FontWeight="Bold"/>
+
+                <TextBlock Margin="0,5,0,0"
+                           Foreground="Gray"
+                           Text="Test all ReanButton styles and features."/>
+            </StackPanel>
+
+            <!-- Button Types -->
+
+            <GroupBox Grid.Row="1"
+                      Header="Button Types"
+                      Margin="0,0,0,20">
+
+                <WrapPanel Margin="15">
+
+                    <ui:ReanButton Width="140"
+                                   Height="45"
+                                   Margin="5"
+                                   Text="Primary"
+                                   Glyph="✓"
+                                   ButtonType="Primary"
+                                   Click="Button_Click"/>
+
+                    <ui:ReanButton Width="140"
+                                   Height="45"
+                                   Margin="5"
+                                   Text="Secondary"
+                                   Glyph="⚙"
+                                   ButtonType="Secondary"
+                                   Click="Button_Click"/>
+
+                    <ui:ReanButton Width="140"
+                                   Height="45"
+                                   Margin="5"
+                                   Text="Success"
+                                   Glyph="✔"
+                                   ButtonType="Success"
+                                   Click="Button_Click"/>
+
+                    <ui:ReanButton Width="140"
+                                   Height="45"
+                                   Margin="5"
+                                   Text="Warning"
+                                   Glyph="⚠"
+                                   ButtonType="Warning"
+                                   Click="Button_Click"/>
+
+                    <ui:ReanButton Width="140"
+                                   Height="45"
+                                   Margin="5"
+                                   Text="Danger"
+                                   Glyph="✖"
+                                   ButtonType="Danger"
+                                   Click="Button_Click"/>
+
+                    <ui:ReanButton Width="140"
+                                   Height="45"
+                                   Margin="5"
+                                   Text="Outline"
+                                   Glyph="□"
+                                   ButtonType="Outline"
+                                   Click="Button_Click"/>
+
+                </WrapPanel>
+
+            </GroupBox>
+
+            <!-- Busy Button -->
+
+            <GroupBox Grid.Row="2"
+                      Header="Busy Button"
+                      Margin="0,0,0,20">
+
+                <WrapPanel Margin="15">
+
+                    <ui:ReanButton x:Name="btnBusy"
+                                   Width="180"
+                                   Height="45"
+                                   Margin="5"
+                                   Text="Save Order"
+                                   BusyText="Saving..."
+                                   Glyph="💾"
+                                   ButtonType="Success"
+                                   Click="BtnBusy_Click"/>
+
+                </WrapPanel>
+
+            </GroupBox>
+
+            <!-- Result -->
+
+            <GroupBox Grid.Row="3"
+                      Header="Result">
+
+                <TextBlock x:Name="txtResult"
+                           Margin="15"
+                           FontSize="16"
+                           FontWeight="SemiBold"
+                           Text="Click any button..." />
+
+            </GroupBox>
+
+
+
+        </Grid>
+
+    </ScrollViewer>
+
+</Page>

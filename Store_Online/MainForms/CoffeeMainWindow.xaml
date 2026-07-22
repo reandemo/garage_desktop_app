@@ -1,0 +1,372 @@
+<Window
+    x:Class="Store_Online.MainForms.CoffeeMainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Coffee POS"
+    Width="1400"
+    Height="850"
+    Background="#F8F8F8"
+    WindowStartupLocation="CenterScreen">
+
+    <DockPanel>
+
+        <!--  =========================================  -->
+        <!--  HEADER  -->
+        <!--  =========================================  -->
+
+        <Border
+    Height="60"
+    Background="#6F4E37"
+    DockPanel.Dock="Top">
+
+            <Grid Margin="20,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Logo -->
+                <StackPanel
+            Grid.Column="0"
+            VerticalAlignment="Center"
+            Orientation="Horizontal">
+
+                    <materialDesign:PackIcon
+                Width="28"
+                Height="28"
+                Kind="Coffee"
+                Foreground="White" />
+
+                    <TextBlock
+                Margin="10,0,0,0"
+                VerticalAlignment="Center"
+                FontSize="24"
+                FontWeight="SemiBold"
+                Foreground="White"
+                Text="Coffee POS" />
+
+                </StackPanel>
+
+                <!-- Language -->
+                <Border
+            Grid.Column="1"
+            Padding="8,4"
+            Background="#8B5E3C"
+            CornerRadius="6"
+            VerticalAlignment="Center">
+
+                    <Menu
+                Background="Transparent"
+                BorderThickness="0">
+
+                        <MenuItem Background="Transparent">
+
+                            <MenuItem.Header>
+
+                                <StackPanel Orientation="Horizontal">
+
+                                    <materialDesign:PackIcon
+                                Width="18"
+                                Height="18"
+                                Margin="0,0,8,0"
+                                Kind="Translate"
+                                Foreground="White"/>
+
+                                    <Image
+                                x:Name="imgCurrentLanguage"
+                                Width="24"
+                                Height="16"
+                                Stretch="Fill"
+                                Source="pack://application:,,,/Shared/Assets/Flags/us.png"/>
+
+                                    <TextBlock
+                                x:Name="txtCurrentLanguage"
+                                Margin="8,0"
+                                VerticalAlignment="Center"
+                                Foreground="White"
+                                FontWeight="SemiBold"
+                                Text="English"/>
+
+                                    <materialDesign:PackIcon
+                                Width="16"
+                                Height="16"
+                                Margin="5,0,0,0"
+                                Kind="ChevronDown"
+                                Foreground="White"/>
+
+                                </StackPanel>
+
+                            </MenuItem.Header>
+
+                            <Separator/>
+
+                            <MenuItem Click="English_Click">
+
+                                <MenuItem.Header>
+                                    <StackPanel Orientation="Horizontal">
+
+                                        <Image
+                                    Width="24"
+                                    Height="16"
+                                    Source="pack://application:,,,/Shared/Assets/Flags/us.png"/>
+
+                                        <TextBlock
+                                    Margin="10,0"
+                                    VerticalAlignment="Center"
+                                    Text="English"/>
+
+                                    </StackPanel>
+                                </MenuItem.Header>
+
+                            </MenuItem>
+
+                            <MenuItem Click="Khmer_Click">
+
+                                <MenuItem.Header>
+                                    <StackPanel Orientation="Horizontal">
+
+                                        <Image
+                                    Width="24"
+                                    Height="16"
+                                    Source="pack://application:,,,/Shared/Assets/Flags/kh.png"/>
+
+                                        <TextBlock
+                                    Margin="10,0"
+                                    VerticalAlignment="Center"
+                                    Text="ភាសាខ្មែរ"/>
+
+                                    </StackPanel>
+                                </MenuItem.Header>
+
+                            </MenuItem>
+
+                            <MenuItem Click="Chinese_Click">
+
+                                <MenuItem.Header>
+                                    <StackPanel Orientation="Horizontal">
+
+                                        <Image
+                                    Width="24"
+                                    Height="16"
+                                    Source="pack://application:,,,/Shared/Assets/Flags/cn.png"/>
+
+                                        <TextBlock
+                                    Margin="10,0"
+                                    VerticalAlignment="Center"
+                                    Text="中文"/>
+
+                                    </StackPanel>
+                                </MenuItem.Header>
+
+                            </MenuItem>
+
+                        </MenuItem>
+
+                    </Menu>
+
+                </Border>
+
+            </Grid>
+
+        </Border>
+        <!--  =========================================  -->
+        <!--  STATUS BAR  -->
+        <!--  =========================================  -->
+
+        <StatusBar Height="30" DockPanel.Dock="Bottom">
+
+            <TextBlock Text="Ready" />
+
+            <Separator />
+
+            <materialDesign:PackIcon
+                Width="14"
+                Height="14"
+                Kind="Store" />
+
+            <TextBlock
+                x:Name="lblBranch"
+                Margin="5,0"
+                Text="Main Branch" />
+
+            <Separator />
+
+            <materialDesign:PackIcon
+                Width="14"
+                Height="14"
+                Kind="Account" />
+
+            <TextBlock
+                x:Name="lblUser"
+                Margin="5,0"
+                Text="Administrator" />
+
+            <Separator />
+
+            <materialDesign:PackIcon
+                Width="14"
+                Height="14"
+                Kind="Tag" />
+
+            <TextBlock
+                x:Name="lblVersion"
+                Margin="5,0"
+                Text="Version 1.0.0" />
+
+        </StatusBar>
+
+        <!--  =========================================  -->
+        <!--  SIDEBAR NAVIGATION  -->
+        <!--  =========================================  -->
+
+        <Border
+            Width="200"
+            Background="#FFF8F0"
+            BorderBrush="#E0D5C7"
+            BorderThickness="0,0,1,0"
+            DockPanel.Dock="Left">
+
+            <DockPanel>
+
+                <!--  Back button  -->
+
+                <Button
+                    x:Name="BtnBack"
+                    Height="44"
+                    Margin="10,15,10,10"
+                    HorizontalContentAlignment="Left"
+                    Click="BtnBack_Click"
+                    DockPanel.Dock="Top"
+                    IsEnabled="False">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon
+                            Width="20"
+                            Height="20"
+                            Margin="5,0,10,0"
+                            Kind="ArrowLeft" />
+                        <TextBlock VerticalAlignment="Center" Text="Back" />
+                    </StackPanel>
+                </Button>
+
+                <Separator Margin="10,0,10,10" DockPanel.Dock="Top" />
+
+                <!--  Nav items  -->
+
+                <StackPanel DockPanel.Dock="Top">
+
+                    <Button
+                        Height="48"
+                        Margin="10,4"
+                        HorizontalContentAlignment="Left"
+                        Click="BtnDashboard_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon
+                                Width="22"
+                                Height="22"
+                                Margin="5,0,12,0"
+                                Kind="ViewDashboard" />
+                            <TextBlock VerticalAlignment="Center"   FontFamily="{DynamicResource HandFont}"  Text="{Binding [MENU_DASHBOARD], Source={StaticResource Lang}}" />
+                        </StackPanel>
+                    </Button>
+
+                    <Button
+                        Height="48"
+                        Margin="10,4"
+                        HorizontalContentAlignment="Left"
+                        Click="BtnPOS_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon
+                                Width="22"
+                                Height="22"
+                                Margin="5,0,12,0"
+                                Kind="PointOfSale" />
+                            <TextBlock VerticalAlignment="Center"    FontFamily="{DynamicResource HandFont}"  Text="{Binding [MENU_POS], Source={StaticResource Lang}}"/>
+                        </StackPanel>
+                    </Button>
+
+                    <Button
+                        Height="48"
+                        Margin="10,4"
+                        HorizontalContentAlignment="Left"
+                        Click="BtnProduct_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon
+                                Width="22"
+                                Height="22"
+                                Margin="5,0,12,0"
+                                Kind="Coffee" />
+                            <TextBlock VerticalAlignment="Center" Text="Products" />
+                        </StackPanel>
+                    </Button>
+
+                    <Button
+                        Height="48"
+                        Margin="10,4"
+                        HorizontalContentAlignment="Left"
+                        Click="BtnReport_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon
+                                Width="22"
+                                Height="22"
+                                Margin="5,0,12,0"
+                                Kind="ChartBar" />
+                            <TextBlock VerticalAlignment="Center"   FontFamily="{DynamicResource HandFont}" Text="{Binding [MENU_REPORT], Source={StaticResource Lang}}" />
+                        </StackPanel>
+                    </Button>
+
+                    <Button
+                        Height="48"
+                        Margin="10,4"
+                        HorizontalContentAlignment="Left"
+                        Click="BtnUser_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon
+                                Width="22"
+                                Height="22"
+                                Margin="5,0,12,0"
+                                Kind="AccountGroup" />
+                            <TextBlock VerticalAlignment="Center" Text="Users" />
+                        </StackPanel>
+                    </Button>
+
+                </StackPanel>
+
+                <!--  Settings pinned to bottom of sidebar  -->
+
+                <Button
+                    Height="48"
+                    Margin="10,4,10,15"
+                    HorizontalContentAlignment="Left"
+                    Click="BtnSystemSetting_Click"
+                    DockPanel.Dock="Bottom">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon
+                            Width="22"
+                            Height="22"
+                            Margin="5,0,12,0"
+                            Kind="Cog" />
+                        <TextBlock VerticalAlignment="Center" Text="Settings" />
+                    </StackPanel>
+                </Button>
+
+                <Border />
+                <!--  filler so DockPanel doesn't complain about no last fill element  -->
+
+            </DockPanel>
+
+        </Border>
+
+        <!--  =========================================  -->
+        <!--  MAIN CONTENT  -->
+        <!--  =========================================  -->
+
+        <Frame
+            x:Name="MainFrame"
+            Background="White"
+            Navigated="MainFrame_Navigated"
+            NavigationUIVisibility="Hidden" />
+
+    </DockPanel>
+
+</Window>

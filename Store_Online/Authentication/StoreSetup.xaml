@@ -1,0 +1,166 @@
+<Window x:Class="Store_Online.Authentication.StoreSetup"
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Width="500"
+    Height="800"
+    AllowsTransparency="True"
+    Background="{x:Null}"
+    ResizeMode="NoResize"
+    WindowStartupLocation="CenterScreen"
+    WindowStyle="None">
+
+
+    <materialDesign:Card
+        Width="400"
+        Padding="10"
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center"
+        materialDesign:ElevationAssist.Elevation="Dp8"
+        UniformCornerRadius="20">
+
+        <StackPanel>
+
+            <Button
+                Width="50"
+                Height="40"
+                Margin="0,-15,-15,0"
+                HorizontalAlignment="Right"
+                Background="Transparent"
+                BorderThickness="0"
+                Click="BtnClose_Click">
+
+                <materialDesign:PackIcon
+                    Width="20"
+                    Height="30"
+                    Foreground="DarkRed"
+                    Kind="CloseCircle" />
+
+            </Button>
+
+            <!--  Logo  -->
+            <!--
+            <Image
+            Width="88"
+            Height="88"
+            HorizontalAlignment="Center"
+            Source="/Assets/money.png" />-->
+
+            <!--  Title  -->
+            <TextBlock
+                HorizontalAlignment="Center"
+                FontSize="28"
+                FontWeight="Bold"
+                Text="Create New Store" />
+
+            <TextBlock
+                Margin="0,0,0,20"
+                HorizontalAlignment="Center"
+                Foreground="#888888"
+                Text="Setup your business with REAN-PRO" />
+
+            <!--  System Type  -->
+            <ComboBox
+                x:Name="cbSystemType"
+                Width="333"
+                Margin="0,10,0,0"
+                materialDesign:HintAssist.Hint="System Type">
+
+                <ComboBoxItem Content="Store Management" />
+                <ComboBoxItem Content="Garage Management" />
+                <ComboBoxItem Content="Restaurant Management" />
+                <ComboBoxItem Content="POS System" />
+                <ComboBoxItem Content="Pharmacy Management" />
+
+            </ComboBox>
+
+            <!--  Store Name  -->
+            <TextBox
+                x:Name="txtStoreName"
+                Width="333"
+                Margin="0,15,0,0"
+                materialDesign:HintAssist.Hint="Store Name"
+                materialDesign:TextFieldAssist.HasLeadingIcon="True"
+                materialDesign:TextFieldAssist.LeadingIcon="Store"
+                Style="{StaticResource MaterialDesignOutlinedTextBox}" />
+
+            <!--  Phone  -->
+            <TextBox
+                x:Name="txtPhone"
+                Width="333"
+                Margin="0,15,0,0"
+                materialDesign:HintAssist.Hint="Phone Number"
+                materialDesign:TextFieldAssist.HasLeadingIcon="True"
+                materialDesign:TextFieldAssist.LeadingIcon="Phone"
+                Style="{StaticResource MaterialDesignOutlinedTextBox}" />
+
+            <!--  Location  -->
+            <ComboBox
+                x:Name="cbLocation"
+                Width="333"
+                Margin="0,15,0,0"
+                materialDesign:HintAssist.Hint="Location">
+
+                <ComboBoxItem Content="PP - Phnom Penh" />
+                <ComboBoxItem Content="KPT - Kampot" />
+                <ComboBoxItem Content="KPS - Sihanoukville" />
+
+            </ComboBox>
+
+            <!--  Username  -->
+            <TextBox
+                x:Name="txtUsername"
+                Width="333"
+                Margin="0,15,0,0"
+                materialDesign:HintAssist.Hint="Username"
+                materialDesign:TextFieldAssist.HasLeadingIcon="True"
+                materialDesign:TextFieldAssist.LeadingIcon="Account"
+                Style="{StaticResource MaterialDesignOutlinedTextBox}" />
+
+            <!--  Password  -->
+            <PasswordBox
+                x:Name="txtPassword"
+                Width="333"
+                Margin="0,15,0,0"
+                materialDesign:HintAssist.Hint="Password"
+                materialDesign:TextFieldAssist.HasLeadingIcon="True"
+                materialDesign:TextFieldAssist.LeadingIcon="Lock"
+                Style="{StaticResource MaterialDesignOutlinedPasswordBox}" />
+
+            <PasswordBox
+                x:Name="txtConfirmPassword"
+                Width="333"
+                Margin="0,15,0,0"
+                materialDesign:HintAssist.Hint="Confirm Password"
+                materialDesign:TextFieldAssist.HasLeadingIcon="True"
+                materialDesign:TextFieldAssist.LeadingIcon="LockCheck"
+                Style="{StaticResource MaterialDesignOutlinedPasswordBox}" />
+
+            <!--  Create Button  -->
+            <Button
+                x:Name="btnCreateStore"
+                Width="333"
+                Height="50"
+                Margin="0,20,0,0"
+                materialDesign:ButtonAssist.CornerRadius="10"
+                Click="btnCreateStore_Click"
+                Content="CREATE STORE"
+                FontSize="18"
+                Style="{StaticResource MaterialDesignFlatMidBgButton}" />
+
+            <!--  Back  -->
+            <Button
+                x:Name="btnBack"
+                Width="333"
+                Margin="0,10,0,0"
+                Click="btnBack_Click"
+                Content="BACK TO LOGIN"
+                Style="{StaticResource MaterialDesignOutlinedButton}" />
+
+        </StackPanel>
+
+    </materialDesign:Card>
+
+</Window>

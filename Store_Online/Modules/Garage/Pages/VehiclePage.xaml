@@ -1,0 +1,194 @@
+<Page x:Class="Store_Online.Modules.Garage.Pages.VehiclePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:controls="clr-namespace:Store_Online.Core.Controls"
+      mc:Ignorable="d"
+      Background="#F8FAFC">
+
+    <Grid>
+
+        <ScrollViewer VerticalScrollBarVisibility="Auto"
+                      HorizontalScrollBarVisibility="Disabled">
+
+            <StackPanel Margin="30">
+
+                <!-- Header -->
+
+                <controls:PageHeader
+                    Margin="0,0,0,25"
+                    Title="Vehicle Management"
+                    Description="Manage all registered vehicles."
+                    ButtonText="Add Vehicle"
+                    ButtonIcon="Plus"
+                    ButtonBrush="#2563EB"/>
+
+                <!-- Toolbar -->
+
+                <controls:DataToolbar
+                    Margin="0,0,0,25"
+                    SearchPlaceholder="Search plate number, customer or vehicle..."
+                    AddButtonText="Add Vehicle"/>
+
+                <!-- Statistics -->
+
+                <UniformGrid Columns="4"
+                             Margin="0,0,0,25">
+
+                    <controls:DashboardCard
+                        Margin="8"
+                        Height="160"
+                        Title="Total Vehicles"
+                        Value="742"
+                        Subtitle="Registered"
+                        Icon="CarMultiple"
+                        AccentBrush="#2563EB"/>
+
+                    <controls:DashboardCard
+                        Margin="8"
+                        Height="160"
+                        Title="Active"
+                        Value="698"
+                        Subtitle="Available"
+                        Icon="CheckCircle"
+                        AccentBrush="#10B981"/>
+
+                    <controls:DashboardCard
+                        Margin="8"
+                        Height="160"
+                        Title="In Service"
+                        Value="24"
+                        Subtitle="Repairing"
+                        Icon="Tools"
+                        AccentBrush="#F59E0B"/>
+
+                    <controls:DashboardCard
+                        Margin="8"
+                        Height="160"
+                        Title="Completed"
+                        Value="20"
+                        Subtitle="Today"
+                        Icon="ClipboardCheck"
+                        AccentBrush="#DC2626"/>
+
+                </UniformGrid>
+
+                <!-- Vehicle List -->
+
+                <Border Background="White"
+                        CornerRadius="12"
+                        BorderBrush="#E5E7EB"
+                        BorderThickness="1"
+                        Padding="20">
+
+                    <Grid>
+
+                        <Grid.RowDefinitions>
+
+                            <RowDefinition Height="Auto"/>
+
+                            <RowDefinition Height="15"/>
+
+                            <RowDefinition Height="*"/>
+
+                        </Grid.RowDefinitions>
+
+                        <StackPanel>
+
+                            <TextBlock
+                                FontSize="22"
+                                FontWeight="SemiBold"
+                                Foreground="#111827"
+                                Text="Vehicle List"/>
+
+                            <TextBlock
+                                Margin="0,5,0,0"
+                                FontSize="13"
+                                Foreground="#6B7280"
+                                Text="All registered vehicles."/>
+
+                        </StackPanel>
+
+                        <DataGrid
+                            Grid.Row="2"
+                            AutoGenerateColumns="False"
+                            CanUserAddRows="False"
+                            CanUserDeleteRows="False"
+                            IsReadOnly="True"
+                            BorderThickness="0"
+                            HeadersVisibility="Column"
+                            GridLinesVisibility="Horizontal"
+                            RowHeaderWidth="0"
+                            RowHeight="42"
+                            ColumnHeaderHeight="42"
+                            AlternatingRowBackground="#F9FAFB">
+
+                            <DataGrid.Columns>
+
+                                <DataGridTextColumn
+                                    Header="Plate No."
+                                    Width="140"
+                                    Binding="{Binding PlateNumber}"/>
+
+                                <DataGridTextColumn
+                                    Header="Customer"
+                                    Width="220"
+                                    Binding="{Binding CustomerName}"/>
+
+                                <DataGridTextColumn
+                                    Header="Brand"
+                                    Width="150"
+                                    Binding="{Binding Brand}"/>
+
+                                <DataGridTextColumn
+                                    Header="Model"
+                                    Width="180"
+                                    Binding="{Binding Model}"/>
+
+                                <DataGridTextColumn
+                                    Header="Year"
+                                    Width="80"
+                                    Binding="{Binding Year}"/>
+
+                                <DataGridTextColumn
+                                    Header="Color"
+                                    Width="120"
+                                    Binding="{Binding Color}"/>
+
+                                <DataGridTextColumn
+                                    Header="Transmission"
+                                    Width="140"
+                                    Binding="{Binding Transmission}"/>
+
+                                <DataGridTextColumn
+                                    Header="Status"
+                                    Width="120"
+                                    Binding="{Binding Status}"/>
+
+                            </DataGrid.Columns>
+
+                        </DataGrid>
+
+                    </Grid>
+
+                </Border>
+
+            </StackPanel>
+
+        </ScrollViewer>
+
+        <controls:LoadingOverlay
+            IsLoading="{Binding IsBusy}"
+            Message="Loading vehicles..."/>
+
+        <controls:EmptyState
+            IsEmpty="{Binding IsEmpty}"
+            Title="No Vehicles Found"
+            Description="There are no vehicles available. Click Add Vehicle to create your first record."
+            ButtonText="Add Vehicle"
+            ButtonIcon="Plus"/>
+
+    </Grid>
+
+</Page>

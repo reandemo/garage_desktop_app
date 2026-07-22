@@ -1,0 +1,59 @@
+﻿<UserControl x:Class="Store_Online.Core.Controls.DataToolbar"
+             x:Name="Root"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:controls="clr-namespace:Store_Online.Core.Controls"
+             mc:Ignorable="d">
+
+    <Grid Margin="0,0,0,20">
+
+        <Grid.ColumnDefinitions>
+
+            <ColumnDefinition Width="320"/>
+
+            <ColumnDefinition Width="*"/>
+
+        </Grid.ColumnDefinitions>
+
+        <controls:SearchBox
+            Grid.Column="0"
+            Width="300"
+            Placeholder="{Binding SearchPlaceholder, ElementName=Root}"
+            Text="{Binding SearchText,
+                           ElementName=Root,
+                           Mode=TwoWay}" />
+
+        <StackPanel Grid.Column="1"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Right">
+
+            <controls:PrimaryButton
+                Width="120"
+                Margin="0,0,10,0"
+                Text="Refresh"
+                Icon="Refresh"
+                BackgroundBrush="#6B7280"
+                Command="{Binding RefreshCommand, ElementName=Root}" />
+
+            <controls:PrimaryButton
+                Width="120"
+                Margin="0,0,10,0"
+                Text="Export"
+                Icon="Export"
+                BackgroundBrush="#16A34A"
+                Command="{Binding ExportCommand, ElementName=Root}" />
+
+            <controls:PrimaryButton
+                Width="150"
+                Text="{Binding AddButtonText, ElementName=Root}"
+                Icon="Plus"
+                BackgroundBrush="#2563EB"
+                Command="{Binding AddCommand, ElementName=Root}" />
+
+        </StackPanel>
+
+    </Grid>
+
+</UserControl>

@@ -1,0 +1,75 @@
+<Application
+    x:Class="Store_Online.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:localization="clr-namespace:Store_Online.Core.Localization"
+    StartupUri="Authentication/Login.xaml">
+
+    <Application.Resources>
+
+        <ResourceDictionary>
+
+            <ResourceDictionary.MergedDictionaries>
+
+                <!-- ===================================================== -->
+                <!-- Material Design Theme -->
+                <!-- ===================================================== -->
+
+                <materialDesign:BundledTheme
+                    BaseTheme="Light"
+                    PrimaryColor="Blue"
+                    SecondaryColor="Lime" />
+
+
+
+                <!-- ===================================================== -->
+                <!-- REAN Theme -->
+                <!-- ===================================================== -->
+
+                <ResourceDictionary Source="/Shared/UI/Themes/Fonts.xaml"/>
+                <ResourceDictionary Source="/Shared/UI/Themes/Colors.xaml"/>
+                <ResourceDictionary Source="/Shared/UI/Themes/Brushes.xaml"/>
+                <ResourceDictionary Source="/Shared/UI/Themes/Typography.xaml"/>
+                <ResourceDictionary Source="/Shared/UI/Themes/Shadows.xaml"/>
+                <ResourceDictionary Source="/Shared/UI/Themes/Icons.xaml"/>
+
+                <!-- ===================================================== -->
+                <!-- Custom Controls -->
+                <!-- ===================================================== -->
+
+                <ResourceDictionary Source="/Shared/UI/Themes/Generic.xaml"/>
+                <ResourceDictionary Source="/Shared/UI/Themes/Buttons.xaml"/>
+                <ResourceDictionary Source="/Shared/UI/Themes/Cards.xaml"/>
+                <ResourceDictionary Source="/Shared/UI/Themes/TextBoxes.xaml"/>
+                <ResourceDictionary Source="/Shared/UI/Themes/ComboBoxes.xaml"/>
+
+                <!-- ===================================================== -->
+                <!-- Material Design Components -->
+                <!-- ===================================================== -->
+
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml"/>
+
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.PopupBox.xaml"/>
+
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.DialogHost.xaml"/>
+
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesign3.Defaults.xaml"/>
+
+                <ResourceDictionary Source="/Store_Online;component/Core/Styles/GarageMenuStyles.xaml"/>
+
+
+
+            </ResourceDictionary.MergedDictionaries>
+
+            <!-- ===================================================== -->
+            <!-- Localization -->
+            <!-- ===================================================== -->
+
+            <localization:ResourceProvider x:Key="Lang"/>
+
+        </ResourceDictionary>
+
+    </Application.Resources>
+
+</Application>

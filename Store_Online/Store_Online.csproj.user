@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <Compile Update="Authentication\Login.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Authentication\StoreSetup.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Core\Controls\BusyOverlay.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Core\Controls\DashboardCard.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Core\Controls\DataToolbar.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Core\Controls\EmptyState.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Core\Controls\GarageHeader.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Core\Controls\GarageStatusBar.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Core\Controls\GarageTopMenu.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Core\Controls\LoadingOverlay.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Core\Controls\PageHeader.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Core\Controls\PrimaryButton.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Core\Controls\SearchBox.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Core\Controls\UserProfileMenu.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Modules\Garage\Dialogs\CustomerDialog.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Shared\Dialogs\ProgressDialog.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Shared\Notifications\NotificationControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Shared\Notifications\NotificationWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="MainForms\CoffeeMainWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="MainForms\GarageMainWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="MainForms\HotelMainWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Modules\Coffee\Pages\CoffeeDashboard.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Modules\Coffee\Pages\OrderPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Modules\Coffee\Pages\POSPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Modules\Coffee\Pages\ProductPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Modules\Garage\Pages\GarageDashboard.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Modules\Garage\Pages\VehiclePage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\DashboardPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\PosPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\ProductPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\UsersPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\Languages\Strings.en-US.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Languages\Strings.km-KH.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Languages\Strings.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Languages\Strings.zh-CN.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,16 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <FontFamily x:Key="AppFont">
+        Roboto Mono
+    </FontFamily>
+
+    <FontFamily x:Key="HandFont">
+        pack://application:,,,/;component/Shared/Assets/Fonts/#ASvadek FastHand
+    </FontFamily>
+
+    <FontFamily x:Key="KhmerFont">
+        pack://application:,,,/;component/Shared/Assets/Fonts/#Khmer OS
+    </FontFamily>
+
+</ResourceDictionary>

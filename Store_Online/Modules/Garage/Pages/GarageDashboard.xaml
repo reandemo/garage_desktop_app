@@ -1,0 +1,183 @@
+<Page x:Class="Store_Online.Modules.Garage.Pages.GarageDashboard"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:controls="clr-namespace:Store_Online.Core.Controls"
+      Background="#F3F4F6">
+    <Grid Background="#F8FAFC">
+
+        <ScrollViewer VerticalScrollBarVisibility="Auto"
+                  HorizontalScrollBarVisibility="Disabled">
+
+            <StackPanel Margin="30">
+
+                <!-- Page Header -->
+
+                <controls:PageHeader
+                Margin="0,0,0,30"
+                Title="Garage Dashboard"
+                Description="Welcome back, Administrator."
+                ButtonText="Refresh"
+                ButtonIcon="Refresh"
+                ButtonBrush="#2563EB"/>
+
+                <!-- Statistics -->
+
+                <UniformGrid Columns="4"
+                         Margin="0,0,0,30">
+
+                    <controls:DashboardCard
+                    Margin="8"
+                    Height="165"
+                    Title="Customers"
+                    Value="523"
+                    Subtitle="+12 Today"
+                    Icon="AccountGroup"
+                    AccentBrush="#2563EB"/>
+
+                    <controls:DashboardCard
+                    Margin="8"
+                    Height="165"
+                    Title="Vehicles"
+                    Value="742"
+                    Subtitle="+8 Today"
+                    Icon="Car"
+                    AccentBrush="#10B981"/>
+
+                    <controls:DashboardCard
+                    Margin="8"
+                    Height="165"
+                    Title="Bookings"
+                    Value="18"
+                    Subtitle="6 Pending"
+                    Icon="CalendarCheck"
+                    AccentBrush="#F59E0B"/>
+
+                    <controls:DashboardCard
+                    Margin="8"
+                    Height="165"
+                    Title="Revenue"
+                    Value="$18,230"
+                    Subtitle="This Month"
+                    Icon="CashMultiple"
+                    AccentBrush="#DC2626"/>
+
+                </UniformGrid>
+
+                <!-- Today's Bookings -->
+
+                <Border Background="White"
+                    BorderBrush="#E5E7EB"
+                    BorderThickness="1"
+                    CornerRadius="12"
+                    Padding="25">
+
+                    <Grid>
+
+                        <Grid.RowDefinitions>
+
+                            <RowDefinition Height="Auto"/>
+
+                            <RowDefinition Height="20"/>
+
+                            <RowDefinition Height="*"/>
+
+                        </Grid.RowDefinitions>
+
+                        <!-- Header -->
+
+                        <DockPanel Grid.Row="0"
+                               LastChildFill="False">
+
+                            <StackPanel DockPanel.Dock="Left">
+
+                                <TextBlock
+                                FontSize="24"
+                                FontWeight="SemiBold"
+                                Foreground="#111827"
+                                Text="Today's Bookings"/>
+
+                                <TextBlock
+                                Margin="0,4,0,0"
+                                FontSize="13"
+                                Foreground="#6B7280"
+                                Text="Vehicle appointments scheduled for today."/>
+
+                            </StackPanel>
+
+                            <Button DockPanel.Dock="Right"
+                                Width="110"
+                                Height="36"
+                                Margin="15,0,0,0"
+                                Background="#2563EB"
+                                BorderThickness="0"
+                                Cursor="Hand"
+                                Foreground="White"
+                                Content="View All"/>
+
+                        </DockPanel>
+
+                        <!-- Grid -->
+
+                        <DataGrid
+                        Grid.Row="2"
+                        AutoGenerateColumns="False"
+                        CanUserAddRows="False"
+                        CanUserDeleteRows="False"
+                        IsReadOnly="True"
+                        BorderThickness="0"
+                        HeadersVisibility="Column"
+                        GridLinesVisibility="Horizontal"
+                        RowHeaderWidth="0"
+                        AlternatingRowBackground="#F9FAFB"
+                        ColumnHeaderHeight="42"
+                        RowHeight="40"
+                        HorizontalGridLinesBrush="#E5E7EB"
+                        VerticalGridLinesBrush="Transparent">
+
+                            <DataGrid.Columns>
+
+                                <DataGridTextColumn
+                                Header="Time"
+                                Width="120"
+                                Binding="{Binding Time}"/>
+
+                                <DataGridTextColumn
+                                Header="Customer"
+                                Width="220"
+                                Binding="{Binding Customer}"/>
+
+                                <DataGridTextColumn
+                                Header="Vehicle"
+                                Width="220"
+                                Binding="{Binding Vehicle}"/>
+
+                                <DataGridTextColumn
+                                Header="Service"
+                                Width="200"
+                                Binding="{Binding Service}"/>
+
+                                <DataGridTextColumn
+                                Header="Status"
+                                Width="150"
+                                Binding="{Binding Status}"/>
+
+                            </DataGrid.Columns>
+
+                        </DataGrid>
+
+                    </Grid>
+
+                </Border>
+
+            </StackPanel>
+
+        </ScrollViewer>
+
+        <!--<controls:LoadingOverlay
+        IsLoading="{Binding IsBusy}"
+        Message="Loading dashboard..." />-->
+
+    </Grid>
+
+</Page>

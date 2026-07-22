@@ -1,0 +1,95 @@
+﻿<UserControl x:Class="Store_Online.Core.Controls.GarageStatusBar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d">
+
+    <Border Background="#F5F5F5"
+            BorderBrush="#DDDDDD"
+            BorderThickness="1,1,1,0">
+
+        <StatusBar Background="Transparent"
+                   BorderThickness="0">
+
+            <!-- Application Status -->
+
+            <StatusBarItem>
+
+                <StackPanel Orientation="Horizontal">
+
+                    <TextBlock Text="●"
+                               Foreground="LimeGreen"
+                               FontSize="12"
+                               Margin="0,0,5,0"/>
+
+                    <TextBlock Text="Ready"/>
+
+                </StackPanel>
+
+            </StatusBarItem>
+
+            <Separator/>
+
+            <!-- Current User -->
+
+            <StatusBarItem>
+
+                <StackPanel Orientation="Horizontal">
+
+                    <TextBlock Text="User: "
+                               FontWeight="SemiBold"/>
+
+                    <TextBlock Text="Administrator"/>
+
+                </StackPanel>
+
+            </StatusBarItem>
+
+            <Separator/>
+
+            <!-- Branch -->
+
+            <StatusBarItem>
+
+                <StackPanel Orientation="Horizontal">
+
+                    <TextBlock Text="Branch: "
+                               FontWeight="SemiBold"/>
+
+                    <TextBlock Text="Main"/>
+
+                </StackPanel>
+
+            </StatusBarItem>
+
+            <Separator/>
+
+            <!-- Database -->
+
+            <StatusBarItem>
+
+                <StackPanel Orientation="Horizontal">
+
+                    <TextBlock Text="Database: "
+                               FontWeight="SemiBold"/>
+
+                    <TextBlock Text="Connected"
+                               Foreground="Green"/>
+
+                </StackPanel>
+
+            </StatusBarItem>
+
+            <StatusBarItem HorizontalAlignment="Right">
+
+                <TextBlock x:Name="txtDateTime"
+                           Text="--/--/---- --:--:--"/>
+
+            </StatusBarItem>
+
+        </StatusBar>
+
+    </Border>
+
+</UserControl>

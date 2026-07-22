@@ -1,0 +1,301 @@
+<Page
+    x:Class="Store_Online.Modules.Coffee.Pages.POSPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:localization="clr-namespace:Store_Online.Core.Localization"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Grid Background="#F5F6FA">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*" />
+            <ColumnDefinition Width="1.3*" />
+        </Grid.ColumnDefinitions>
+
+        <!--  LEFT SIDE  -->
+        <Grid Grid.Column="0" Margin="15">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <!--  Header  -->
+
+            <DockPanel Grid.Row="0" Margin="0,0,0,10">
+
+                <TextBlock
+                    VerticalAlignment="Center"
+                    FontSize="28"
+                    FontWeight="Bold"
+                    FontFamily="{DynamicResource HandFont}"
+                    Text="{Binding [POS_TITLE], Source={StaticResource Lang}}" />
+
+                <TextBox
+                    Width="250"
+                    Height="40"
+                    Margin="20,0,0,0"
+                    VerticalAlignment="Center"
+                    DockPanel.Dock="Right"
+                    FontSize="15"
+                    Text="Search Product" />
+            </DockPanel>
+
+            <!--  Category Menu  -->
+
+            <ScrollViewer
+                Grid.Row="1"
+                Margin="0,0,0,10"
+                HorizontalScrollBarVisibility="Auto"
+                VerticalScrollBarVisibility="Disabled">
+
+                <StackPanel Orientation="Horizontal">
+
+                    <Button
+                        Width="120"
+                        Height="45"
+                        Margin="5"
+                        FontFamily="{DynamicResource HandFont}"
+                        Content="{Binding [CATEGORY_COFFEE], Source={StaticResource Lang}}" Click="Button_Click" />
+
+                    <Button
+                        Width="120"
+                        Height="45"
+                        Margin="5"
+                        FontFamily="{DynamicResource HandFont}"
+                        Content="{Binding [CATEGORY_DRINK], Source={StaticResource Lang}}" />
+
+                    <Button
+                        Width="120"
+                        Height="45"
+                        Margin="5"
+                        Content="🍰 Cake" />
+
+                    <Button
+                        Width="120"
+                        Height="45"
+                        Margin="5"
+                        Content="🍔 Food" />
+
+                </StackPanel>
+
+            </ScrollViewer>
+
+            <!--  Products  -->
+
+            <ScrollViewer Grid.Row="2">
+
+                <WrapPanel>
+
+                    <!--  Product Card  -->
+
+                    <Border
+                        Width="180"
+                        Height="220"
+                        Margin="8"
+                        Background="White"
+                        CornerRadius="12">
+
+                        <StackPanel>
+
+                            <Border
+                                Height="120"
+                                Background="#EAEAEA"
+                                CornerRadius="12,12,0,0">
+
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    FontSize="50"
+                                    Text="☕" />
+                            </Border>
+
+                            <TextBlock
+                                Margin="10,10,10,0"
+                                FontSize="16"
+                                FontWeight="Bold"
+                                Text="Latte" />
+
+                            <TextBlock
+                                Margin="10,5,10,10"
+                                FontSize="15"
+                                Foreground="Green"
+                                Text="$2.50" />
+
+                            <Button
+                                Height="35"
+                                Margin="10"
+                                Content="Add to Cart" />
+                        </StackPanel>
+
+                    </Border>
+
+                    <Border
+                        Width="180"
+                        Height="220"
+                        Margin="8"
+                        Background="White"
+                        CornerRadius="12">
+
+                        <StackPanel>
+
+                            <Border
+                                Height="120"
+                                Background="#EAEAEA"
+                                CornerRadius="12,12,0,0">
+
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    FontSize="50"
+                                    Text="🥤" />
+                            </Border>
+
+                            <TextBlock
+                                Margin="10,10,10,0"
+                                FontSize="16"
+                                FontWeight="Bold"
+                                Text="Americano" />
+
+                            <TextBlock
+                                Margin="10,5,10,10"
+                                FontSize="15"
+                                Foreground="Green"
+                                Text="$3.00" />
+
+                            <Button
+                                Height="35"
+                                Margin="10"
+                                Content="Add to Cart" />
+                        </StackPanel>
+
+                    </Border>
+
+                </WrapPanel>
+
+            </ScrollViewer>
+
+        </Grid>
+
+        <!--  RIGHT SIDE CART  -->
+
+        <Border
+            Grid.Column="1"
+            Margin="15"
+            Background="White"
+            CornerRadius="15">
+
+            <Grid Margin="15">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <!--  Invoice  -->
+
+                <StackPanel Grid.Row="0">
+
+                    <TextBlock
+                        FontSize="24"
+                        FontWeight="Bold"
+                        Text="Current Sale" />
+
+                    <TextBlock Foreground="Gray" Text="INV : POS00001" />
+
+                    <Separator Margin="0,10" />
+                </StackPanel>
+
+                <!--  Cart List  -->
+
+                <ListView Grid.Row="1">
+
+                    <ListViewItem>
+                        <Grid>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="50" />
+                                <ColumnDefinition Width="70" />
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Text="Latte" />
+
+                            <TextBlock
+                                Grid.Column="1"
+                                HorizontalAlignment="Center"
+                                Text="2" />
+
+                            <TextBlock
+                                Grid.Column="2"
+                                HorizontalAlignment="Right"
+                                Text="$5.00" />
+
+                        </Grid>
+                    </ListViewItem>
+
+                    <ListViewItem>
+                        <Grid>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="50" />
+                                <ColumnDefinition Width="70" />
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Text="Americano" />
+
+                            <TextBlock
+                                Grid.Column="1"
+                                HorizontalAlignment="Center"
+                                Text="1" />
+
+                            <TextBlock
+                                Grid.Column="2"
+                                HorizontalAlignment="Right"
+                                Text="$3.00" />
+
+                        </Grid>
+                    </ListViewItem>
+
+                </ListView>
+
+                <!--  Total  -->
+
+                <StackPanel Grid.Row="2">
+
+                    <Separator />
+
+                    <DockPanel Margin="0,10">
+
+                        <TextBlock
+                            FontSize="18"
+                            FontWeight="Bold"
+                            Text="Total" />
+
+                        <TextBlock
+                            HorizontalAlignment="Right"
+                            FontSize="20"
+                            FontWeight="Bold"
+                            Foreground="Green"
+                            Text="$8.00" />
+                    </DockPanel>
+
+                    <Button
+                        Height="50"
+                        Background="#4CAF50"
+                        Content="💳 Checkout"
+                        FontSize="16"
+                        FontWeight="Bold"
+                        Foreground="White" />
+
+                </StackPanel>
+
+            </Grid>
+
+        </Border>
+
+    </Grid>
+
+</Page>

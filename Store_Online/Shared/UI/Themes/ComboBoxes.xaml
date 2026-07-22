@@ -1,0 +1,45 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+
+    <!--  =====================================================  -->
+    <!--  Base ComboBox  -->
+    <!--  =====================================================  -->
+
+    <Style x:Key="BaseComboBox" TargetType="ComboBox">
+
+        <Setter Property="Height" Value="42" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Padding" Value="10,5" />
+        <Setter Property="Foreground" Value="{StaticResource TextBrush}" />
+        <Setter Property="Background" Value="White" />
+        <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+
+    </Style>
+
+    <!--  =====================================================  -->
+    <!--  Default  -->
+    <!--  =====================================================  -->
+
+    <Style
+        x:Key="DefaultComboBox"
+        BasedOn="{StaticResource BaseComboBox}"
+        TargetType="ComboBox" />
+
+    <!--  =====================================================  -->
+    <!--  Large  -->
+    <!--  =====================================================  -->
+
+    <Style
+        x:Key="LargeComboBox"
+        BasedOn="{StaticResource BaseComboBox}"
+        TargetType="ComboBox">
+
+        <Setter Property="Height" Value="48" />
+
+        <Setter Property="FontSize" Value="15" />
+
+    </Style>
+
+</ResourceDictionary>

@@ -1,0 +1,115 @@
+﻿<UserControl x:Class="Store_Online.Core.Controls.EmptyState"
+             x:Name="Root"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d">
+
+    <UserControl.Resources>
+
+        <BooleanToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+
+        <Style x:Key="ButtonVisibilityStyle"
+               TargetType="Button">
+
+            <Setter Property="Visibility"
+                    Value="Collapsed"/>
+
+            <Style.Triggers>
+
+                <DataTrigger Binding="{Binding ButtonText, ElementName=Root}"
+                             Value="">
+
+                    <Setter Property="Visibility"
+                            Value="Collapsed"/>
+
+                </DataTrigger>
+
+                <DataTrigger Binding="{Binding ButtonText, ElementName=Root}"
+                             Value="{x:Null}">
+
+                    <Setter Property="Visibility"
+                            Value="Collapsed"/>
+
+                </DataTrigger>
+
+                <DataTrigger Binding="{Binding ButtonText, ElementName=Root}"
+                             Value="Add">
+
+                    <Setter Property="Visibility"
+                            Value="Visible"/>
+
+                </DataTrigger>
+
+            </Style.Triggers>
+
+        </Style>
+
+    </UserControl.Resources>
+
+    <Grid Visibility="{Binding IsEmpty,
+                               ElementName=Root,
+                               Converter={StaticResource BoolToVisibilityConverter}}">
+
+        <StackPanel Width="360"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+
+            <materialDesign:PackIcon
+                Width="72"
+                Height="72"
+                HorizontalAlignment="Center"
+                Kind="{Binding Icon, ElementName=Root}"
+                Foreground="#D1D5DB"/>
+
+            <TextBlock Margin="0,20,0,8"
+                       HorizontalAlignment="Center"
+                       FontSize="22"
+                       FontWeight="SemiBold"
+                       Foreground="#374151"
+                       Text="{Binding Title, ElementName=Root}"/>
+
+            <TextBlock
+                FontSize="14"
+                Foreground="#6B7280"
+                HorizontalAlignment="Center"
+                TextAlignment="Center"
+                TextWrapping="Wrap"
+                Text="{Binding Description, ElementName=Root}"/>
+
+            <Button
+                Width="170"
+                Height="40"
+                Margin="0,30,0,0"
+                HorizontalAlignment="Center"
+                Background="#2563EB"
+                BorderThickness="0"
+                Cursor="Hand"
+                Foreground="White"
+                FontWeight="SemiBold"
+                Style="{StaticResource ButtonVisibilityStyle}"
+                Command="{Binding Command, ElementName=Root}">
+
+                <StackPanel Orientation="Horizontal">
+
+                    <materialDesign:PackIcon
+                        Width="18"
+                        Height="18"
+                        Margin="0,0,8,0"
+                        Kind="{Binding ButtonIcon, ElementName=Root}"/>
+
+                    <TextBlock
+                        VerticalAlignment="Center"
+                        Text="{Binding ButtonText, ElementName=Root}"/>
+
+                </StackPanel>
+
+            </Button>
+
+        </StackPanel>
+
+    </Grid>
+
+</UserControl>

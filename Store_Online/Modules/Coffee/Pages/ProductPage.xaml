@@ -1,0 +1,131 @@
+<Page x:Class="Store_Online.Modules.Coffee.Pages.ProductPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:ui="clr-namespace:Store_Online.Shared.UI.Controls">
+
+    <Grid Margin="20">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+
+        <StackPanel>
+
+            <TextBlock
+                Text="☕ Product Management"
+                FontSize="26"
+                FontWeight="Bold"/>
+
+            <TextBlock
+                Margin="0,5,0,20"
+                Foreground="Gray"
+                Text="Manage coffee products and menu items." />
+
+        </StackPanel>
+
+        <!-- Toolbar -->
+
+        <Grid Grid.Row="1">
+
+            <Grid.ColumnDefinitions>
+
+                <ColumnDefinition Width="*"/>
+
+                <ColumnDefinition Width="300"/>
+
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Orientation="Horizontal">
+
+                <ui:ReanButton
+                    Width="150"
+                    Height="42"
+                    Margin="0,0,10,0"
+                    Text="New Product"
+                    Glyph="+"
+                    ButtonType="Primary"
+                    Click="BtnNew_Click"/>
+
+                <ui:ReanButton
+                    Width="120"
+                    Height="42"
+                    Margin="0,0,10,0"
+                    Text="Save"
+                    Glyph="💾"
+                    ButtonType="Success"
+                    Click="BtnSave_Click"/>
+
+                <ui:ReanButton
+                    Width="120"
+                    Height="42"
+                    Margin="0,0,10,0"
+                    Text="Refresh"
+                    Glyph="⟳"
+                    ButtonType="Secondary"
+                    Click="BtnRefresh_Click"/>
+
+                <ui:ReanButton
+                    Width="120"
+                    Height="42"
+                    Text="Delete"
+                    Glyph="🗑"
+                    ButtonType="Danger"
+                    Click="BtnDelete_Click"/>
+
+            </StackPanel>
+
+            <TextBox
+                Grid.Column="1"
+                Height="40"
+                VerticalContentAlignment="Center"
+                Text="Search product..." />
+
+        </Grid>
+
+        <!-- Data -->
+
+        <Border
+            Grid.Row="2"
+            Margin="0,20,0,0"
+            CornerRadius="10"
+            BorderBrush="#DDDDDD"
+            BorderThickness="1">
+
+            <DataGrid
+                AutoGenerateColumns="False">
+
+                <DataGrid.Columns>
+
+                    <DataGridTextColumn
+                        Header="Code"
+                        Binding="{Binding Code}"/>
+
+                    <DataGridTextColumn
+                        Header="Name"
+                        Binding="{Binding Name}"/>
+
+                    <DataGridTextColumn
+                        Header="Category"
+                        Binding="{Binding Category}"/>
+
+                    <DataGridTextColumn
+                        Header="Price"
+                        Binding="{Binding SalePrice}"/>
+
+                    <DataGridTextColumn
+                        Header="Status"
+                        Binding="{Binding Status}"/>
+
+                </DataGrid.Columns>
+
+            </DataGrid>
+
+        </Border>
+
+    </Grid>
+
+</Page>

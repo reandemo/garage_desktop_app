@@ -1,0 +1,51 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--  =====================================================  -->
+    <!--  Default Card  -->
+    <!--  =====================================================  -->
+
+    <Style x:Key="CardBorder" TargetType="Border">
+
+        <Setter Property="Background" Value="{StaticResource CardBrush}" />
+
+        <Setter Property="CornerRadius" Value="14" />
+
+        <Setter Property="Padding" Value="20" />
+
+        <Setter Property="Margin" Value="8" />
+
+        <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}" />
+
+        <Setter Property="BorderThickness" Value="1" />
+
+        <Setter Property="Effect" Value="{StaticResource CardShadow}" />
+
+    </Style>
+
+    <!--  =====================================================  -->
+    <!--  Small Card  -->
+    <!--  =====================================================  -->
+
+    <Style
+        x:Key="SmallCard"
+        BasedOn="{StaticResource CardBorder}"
+        TargetType="Border">
+
+        <Setter Property="Padding" Value="12" />
+
+    </Style>
+
+    <!--  =====================================================  -->
+    <!--  Large Card  -->
+    <!--  =====================================================  -->
+
+    <Style
+        x:Key="LargeCard"
+        BasedOn="{StaticResource CardBorder}"
+        TargetType="Border">
+
+        <Setter Property="Padding" Value="28" />
+
+    </Style>
+
+</ResourceDictionary>
