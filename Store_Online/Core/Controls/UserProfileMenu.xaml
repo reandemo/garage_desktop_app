@@ -150,14 +150,7 @@
                                 x:Name="txtPopupEmail"
                                 FontSize="12"
                                 Foreground="#6B7280"
-                                Text="administrator@storeonline.local" />
-
-                            <TextBlock
-                                x:Name="txtPopupBranch"
-                                Margin="0,4,0,0"
-                                FontSize="11"
-                                Foreground="#9CA3AF"
-                                Text="Main Branch" />
+                                Text="demo@reanprogramming.com" />
 
                         </StackPanel>
 
@@ -205,25 +198,6 @@
 
                     </Button>
 
-                    <Button
-                        Height="42"
-                        HorizontalContentAlignment="Left"
-                        Background="Transparent"
-                        BorderThickness="0">
-
-                        <StackPanel Orientation="Horizontal">
-
-                            <materialDesign:PackIcon
-                                Width="18"
-                                Height="18"
-                                Margin="12,0,10,0"
-                                Kind="CogOutline" />
-
-                            <TextBlock VerticalAlignment="Center" Text="Settings" />
-
-                        </StackPanel>
-
-                    </Button>
 
                     <Separator Margin="10,4" />
 

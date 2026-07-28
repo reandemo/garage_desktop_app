@@ -12,8 +12,6 @@ namespace Store_Online.Core.Controls
             RefreshUser();
         }
 
-        #region Dependency Properties
-
         public string UserName
         {
             get => (string)GetValue(UserNameProperty);
@@ -79,8 +77,6 @@ namespace Store_Online.Core.Controls
                 typeof(UserProfileMenu),
                 new PropertyMetadata(string.Empty));
 
-        #endregion
-
         public event EventHandler? LogoutRequested;
 
         public void RefreshUser()
@@ -106,13 +102,16 @@ namespace Store_Online.Core.Controls
 
         private void LogoutButton_Click(object sender, RoutedEventArgs e)
         {
-            AppSession.Clear();
+            MessageBoxResult result = MessageBox.Show(
+                "Are you sure you want to logout?",
+                "Logout",
+                MessageBoxButton.YesNo,
+                MessageBoxImage.Question);
 
-            RefreshUser();
+            if (result != MessageBoxResult.Yes)
+                return;
 
             LogoutRequested?.Invoke(this, EventArgs.Empty);
         }
     }
-
-
 }

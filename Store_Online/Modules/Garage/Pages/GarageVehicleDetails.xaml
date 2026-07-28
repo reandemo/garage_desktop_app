@@ -1,0 +1,401 @@
+﻿<Page x:Class="Store_Online.Modules.Garage.Pages.GarageVehicleDetails"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d"
+      Title="GarageVehicleDetails"
+      d:DesignHeight="900"
+      d:DesignWidth="1400">
+
+    <Grid Background="#F5F7FA" Margin="15">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="170"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="220"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="220"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <Border Grid.Row="0"
+                Background="White"
+                CornerRadius="8"
+                Padding="20"
+                BorderBrush="#DDDDDD"
+                BorderThickness="1">
+
+            <DockPanel LastChildFill="False">
+
+                <StackPanel DockPanel.Dock="Left">
+
+                    <TextBlock Text="Vehicle Details"
+                               FontSize="26"
+                               FontWeight="SemiBold"
+                               Foreground="#2F3944"/>
+
+                    <TextBlock Text="Complete vehicle profile and service overview."
+                               FontSize="13"
+                               Foreground="Gray"/>
+
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal"
+                            DockPanel.Dock="Right">
+
+                    <Button Width="120"
+                            Height="38"
+                            Margin="5">
+
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Pencil"/>
+                            <TextBlock Margin="8,0,0,0"
+                                       Text="Edit"/>
+                        </StackPanel>
+
+                    </Button>
+
+                    <Button Width="120"
+                            Height="38"
+                            Margin="5">
+
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Printer"/>
+                            <TextBlock Margin="8,0,0,0"
+                                       Text="Print"/>
+                        </StackPanel>
+
+                    </Button>
+
+                </StackPanel>
+
+            </DockPanel>
+
+        </Border>
+
+        <!-- Vehicle Information -->
+        <Border Grid.Row="2"
+                Background="White"
+                CornerRadius="8"
+                BorderBrush="#DDDDDD"
+                BorderThickness="1"
+                Padding="20">
+
+            <Grid>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="180"/>
+                    <ColumnDefinition Width="300"/>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="180"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="35"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Vehicle Code" FontWeight="Bold"/>
+                <TextBlock Grid.Column="1" Text="VEH000001"/>
+
+                <TextBlock Grid.Row="1" Text="License Plate" FontWeight="Bold"/>
+                <TextBlock Grid.Row="1" Grid.Column="1" Text="2AB-1234"/>
+
+                <TextBlock Grid.Row="2" Text="Customer" FontWeight="Bold"/>
+                <TextBlock Grid.Row="2" Grid.Column="1" Text="John Smith"/>
+
+                <TextBlock Grid.Row="3" Text="Brand" FontWeight="Bold"/>
+                <TextBlock Grid.Row="3" Grid.Column="1" Text="Toyota"/>
+
+                <TextBlock Grid.Row="4" Text="Model" FontWeight="Bold"/>
+                <TextBlock Grid.Row="4" Grid.Column="1" Text="Hilux Revo"/>
+
+                <TextBlock Grid.Row="5" Text="Year" FontWeight="Bold"/>
+                <TextBlock Grid.Row="5" Grid.Column="1" Text="2023"/>
+
+                <TextBlock Grid.Row="6" Text="Color" FontWeight="Bold"/>
+                <TextBlock Grid.Row="6" Grid.Column="1" Text="White"/>
+
+                <TextBlock Grid.Column="3" Text="VIN Number" FontWeight="Bold"/>
+                <TextBlock Grid.Column="4" Text="JT123456789012345"/>
+
+                <TextBlock Grid.Row="1" Grid.Column="3" Text="Engine Number" FontWeight="Bold"/>
+                <TextBlock Grid.Row="1" Grid.Column="4" Text="EN987654321"/>
+
+                <TextBlock Grid.Row="2" Grid.Column="3" Text="Chassis Number" FontWeight="Bold"/>
+                <TextBlock Grid.Row="2" Grid.Column="4" Text="CH123456789"/>
+
+                <TextBlock Grid.Row="3" Grid.Column="3" Text="Transmission" FontWeight="Bold"/>
+                <TextBlock Grid.Row="3" Grid.Column="4" Text="Automatic"/>
+
+                <TextBlock Grid.Row="4" Grid.Column="3" Text="Fuel Type" FontWeight="Bold"/>
+                <TextBlock Grid.Row="4" Grid.Column="4" Text="Diesel"/>
+
+                <TextBlock Grid.Row="5" Grid.Column="3" Text="Mileage" FontWeight="Bold"/>
+                <TextBlock Grid.Row="5" Grid.Column="4" Text="48,650 KM"/>
+
+                <TextBlock Grid.Row="6" Grid.Column="3" Text="Status" FontWeight="Bold"/>
+                <TextBlock Grid.Row="6" Grid.Column="4"
+                           Text="Active"
+                           Foreground="Green"
+                           FontWeight="Bold"/>
+
+            </Grid>
+
+        </Border>
+
+        <!-- Summary -->
+        <Grid Grid.Row="4">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Service -->
+            <Border Grid.Column="0"
+                    Background="White"
+                    CornerRadius="8"
+                    Padding="20"
+                    BorderBrush="#DDDDDD"
+                    BorderThickness="1">
+
+                <StackPanel>
+
+                    <materialDesign:PackIcon Kind="Wrench"
+                                             Width="40"
+                                             Height="40"
+                                             Foreground="#2196F3"/>
+
+                    <TextBlock Text="Service Summary"
+                               FontWeight="Bold"
+                               FontSize="18"
+                               Margin="0,10"/>
+
+                    <TextBlock Text="Total Services : 18"/>
+                    <TextBlock Text="Completed : 17" Margin="0,6,0,0"/>
+                    <TextBlock Text="Open : 1" Margin="0,6,0,0"/>
+
+                </StackPanel>
+
+            </Border>
+
+            <!-- Invoice -->
+            <Border Grid.Column="2"
+                    Background="White"
+                    CornerRadius="8"
+                    Padding="20"
+                    BorderBrush="#DDDDDD"
+                    BorderThickness="1">
+
+                <StackPanel>
+
+                    <materialDesign:PackIcon Kind="Receipt"
+                                             Width="40"
+                                             Height="40"
+                                             Foreground="#43A047"/>
+
+                    <TextBlock Text="Invoice Summary"
+                               FontWeight="Bold"
+                               FontSize="18"
+                               Margin="0,10"/>
+
+                    <TextBlock Text="Invoices : 18"/>
+                    <TextBlock Text="Paid : 17" Margin="0,6,0,0"/>
+                    <TextBlock Text="Pending : 1" Margin="0,6,0,0"/>
+
+                </StackPanel>
+
+            </Border>
+
+            <!-- Payment -->
+            <Border Grid.Column="4"
+                    Background="White"
+                    CornerRadius="8"
+                    Padding="20"
+                    BorderBrush="#DDDDDD"
+                    BorderThickness="1">
+
+                <StackPanel>
+
+                    <materialDesign:PackIcon Kind="CashMultiple"
+                                             Width="40"
+                                             Height="40"
+                                             Foreground="#FB8C00"/>
+
+                    <TextBlock Text="Payment Summary"
+                               FontWeight="Bold"
+                               FontSize="18"
+                               Margin="0,10"/>
+
+                    <TextBlock Text="Paid : $2,850"/>
+                    <TextBlock Text="Balance : $120" Margin="0,6,0,0"/>
+                    <TextBlock Text="Last Payment : 15-Jul-2026" Margin="0,6,0,0"/>
+
+                </StackPanel>
+
+            </Border>
+
+        </Grid>
+
+        <!-- Service History -->
+        <Border Grid.Row="6"
+                Background="White"
+                CornerRadius="8"
+                BorderBrush="#DDDDDD"
+                BorderThickness="1"
+                Padding="10">
+
+            <DockPanel>
+
+                <TextBlock DockPanel.Dock="Top"
+                           Text="Recent Service History"
+                           FontWeight="Bold"
+                           FontSize="18"
+                           Margin="5"/>
+
+                <DataGrid AutoGenerateColumns="False"
+                          CanUserAddRows="False"
+                          IsReadOnly="True"
+                          Margin="0,10,0,0">
+
+                    <DataGrid.Columns>
+
+                        <DataGridTextColumn Header="Invoice"
+                                            Width="120"
+                                            Binding="{Binding InvoiceNo}"/>
+
+                        <DataGridTextColumn Header="Date"
+                                            Width="120"
+                                            Binding="{Binding Date}"/>
+
+                        <DataGridTextColumn Header="Service"
+                                            Width="*"
+                                            Binding="{Binding Service}"/>
+
+                        <DataGridTextColumn Header="Technician"
+                                            Width="150"
+                                            Binding="{Binding Technician}"/>
+
+                        <DataGridTextColumn Header="Amount"
+                                            Width="120"
+                                            Binding="{Binding Amount}"/>
+
+                        <DataGridTextColumn Header="Status"
+                                            Width="100"
+                                            Binding="{Binding Status}"/>
+
+                    </DataGrid.Columns>
+
+                </DataGrid>
+
+            </DockPanel>
+
+        </Border>
+
+        <!-- Repair Orders -->
+        <Border Grid.Row="8"
+                Background="White"
+                CornerRadius="8"
+                BorderBrush="#DDDDDD"
+                BorderThickness="1"
+                Padding="10">
+
+            <DockPanel>
+
+                <TextBlock DockPanel.Dock="Top"
+                           Text="Repair Orders"
+                           FontWeight="Bold"
+                           FontSize="18"
+                           Margin="5"/>
+
+                <DataGrid AutoGenerateColumns="False"
+                          CanUserAddRows="False"
+                          IsReadOnly="True"
+                          Margin="0,10,0,0">
+
+                    <DataGrid.Columns>
+
+                        <DataGridTextColumn Header="RO Number"
+                                            Width="140"
+                                            Binding="{Binding RONumber}"/>
+
+                        <DataGridTextColumn Header="Date"
+                                            Width="120"
+                                            Binding="{Binding Date}"/>
+
+                        <DataGridTextColumn Header="Advisor"
+                                            Width="150"
+                                            Binding="{Binding Advisor}"/>
+
+                        <DataGridTextColumn Header="Technician"
+                                            Width="150"
+                                            Binding="{Binding Technician}"/>
+
+                        <DataGridTextColumn Header="Status"
+                                            Width="120"
+                                            Binding="{Binding Status}"/>
+
+                    </DataGrid.Columns>
+
+                </DataGrid>
+
+            </DockPanel>
+
+        </Border>
+
+        <!-- Footer -->
+        <Border Grid.Row="10"
+                Background="White"
+                CornerRadius="8"
+                Padding="15"
+                BorderBrush="#DDDDDD"
+                BorderThickness="1">
+
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Right">
+
+                <Button Width="130"
+                        Height="40"
+                        Margin="5"
+                        Content="Edit Vehicle"/>
+
+                <Button Width="110"
+                        Height="40"
+                        Margin="5"
+                        Content="Print"/>
+
+                <Button Width="110"
+                        Height="40"
+                        Margin="5"
+                        Content="Refresh"/>
+
+                <Button Width="110"
+                        Height="40"
+                        Margin="5"
+                        Content="Close"/>
+
+            </StackPanel>
+
+        </Border>
+
+    </Grid>
+
+</Page>

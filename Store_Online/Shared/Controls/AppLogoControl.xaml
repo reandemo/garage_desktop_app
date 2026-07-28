@@ -1,0 +1,43 @@
+﻿<UserControl
+    x:Class="Store_Online.Shared.Controls.AppLogoControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid>
+
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+
+            <Border
+                Width="{Binding LogoSize, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                Height="{Binding LogoSize, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                Background="Transparent"
+                CornerRadius="16">
+
+                <Image Source="{Binding LogoSource, RelativeSource={RelativeSource AncestorType=UserControl}}" Stretch="Uniform" />
+
+            </Border>
+
+            <TextBlock
+                Margin="0,15,0,0"
+                HorizontalAlignment="Center"
+                FontFamily="{DynamicResource HandFont}"
+                FontSize="30"
+                FontWeight="Bold"
+                Text="{Binding Title, RelativeSource={RelativeSource AncestorType=UserControl}}" />
+
+            <TextBlock
+                Margin="0,5,0,0"
+                HorizontalAlignment="Center"
+                FontFamily="{DynamicResource HandFont}"
+                FontSize="16"
+                Foreground="#7A7A7A"
+                Text="{Binding Subtitle, RelativeSource={RelativeSource AncestorType=UserControl}}" />
+
+        </StackPanel>
+
+    </Grid>
+
+</UserControl>

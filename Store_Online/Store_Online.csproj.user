@@ -44,10 +44,115 @@
     <Compile Update="Core\Controls\UserProfileMenu.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Modules\Garage\Dialogs\CustomerDialog.xaml.cs">
+    <Compile Update="Modules\Garage\Pages\GarageCustomer.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Modules\Garage\Pages\GarageCustomerDetails.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Modules\Garage\Pages\GarageCustomerRegistration.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Modules\Garage\Pages\GarageVehicle.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Modules\Garage\Pages\GarageVehicleDetails.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Modules\Garage\Pages\GarageVehicleRegistration.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Shared\Controls\AppLogoControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Shared\Controls\GarageActionBar.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Shared\Controls\GarageBreadcrumb.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Shared\Controls\GarageCard.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Shared\Controls\GarageDashboardCard.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Shared\Controls\GarageEmptyView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Shared\Controls\GarageFilterPanel.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Shared\Controls\GarageFooter.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Shared\Controls\GarageHeader.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Shared\Controls\GarageInfoPanel.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Shared\Controls\GarageLoading.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Shared\Controls\GarageNotification.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Shared\Controls\GaragePagination.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Shared\Controls\GarageQuickActions.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Shared\Controls\GarageSearchBox.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Shared\Controls\GarageSideMenu.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Shared\Controls\GarageStatisticCard.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Shared\Controls\GarageStatusBadge.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Shared\Controls\GarageSummaryCard.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Shared\Controls\GarageTimeline.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Shared\Controls\GarageToolbar.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Shared\Controls\InputFieldControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Shared\Controls\PasswordFieldControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Shared\Controls\WindowHeaderControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Shared\Dialogs\AlertDialog.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Shared\Dialogs\ConfirmDialog.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Shared\Dialogs\InputDialog.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Shared\Dialogs\LoadingDialog.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Shared\Dialogs\PasswordDialog.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Shared\Dialogs\ProgressDialog.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Shared\Dialogs\ValidateInputDialog.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Shared\Notifications\NotificationControl.xaml.cs">
@@ -81,18 +186,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Modules\Garage\Pages\VehiclePage.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Views\DashboardPage.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Views\PosPage.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Views\ProductPage.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Views\UsersPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

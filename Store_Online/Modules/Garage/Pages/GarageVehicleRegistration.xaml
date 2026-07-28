@@ -1,0 +1,357 @@
+﻿<Page x:Class="Store_Online.Modules.Garage.Pages.GarageVehicleRegistration"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d"
+      Title="GarageVehicleRegistration"
+      d:DesignHeight="850"
+      d:DesignWidth="1300">
+
+    <Grid Background="#F5F7FA" Margin="15">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <Border Grid.Row="0"
+                Background="White"
+                CornerRadius="8"
+                Padding="20"
+                BorderBrush="#DDDDDD"
+                BorderThickness="1">
+
+            <StackPanel>
+
+                <TextBlock Text="Vehicle Registration"
+                           FontSize="26"
+                           FontWeight="SemiBold"
+                           Foreground="#2F3944"/>
+
+                <TextBlock Text="Create or update vehicle information."
+                           FontSize="13"
+                           Foreground="Gray"/>
+
+            </StackPanel>
+
+        </Border>
+
+        <!-- Vehicle Information -->
+        <Border Grid.Row="2"
+                Background="White"
+                CornerRadius="8"
+                Padding="25"
+                BorderBrush="#DDDDDD"
+                BorderThickness="1">
+
+            <StackPanel>
+
+                <TextBlock Text="Vehicle Information"
+                           FontSize="18"
+                           FontWeight="SemiBold"
+                           Margin="0,0,0,20"/>
+
+                <Grid>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="170"/>
+                        <ColumnDefinition Width="320"/>
+                        <ColumnDefinition Width="40"/>
+                        <ColumnDefinition Width="170"/>
+                        <ColumnDefinition Width="320"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="55"/>
+                        <RowDefinition Height="55"/>
+                        <RowDefinition Height="55"/>
+                        <RowDefinition Height="55"/>
+                        <RowDefinition Height="55"/>
+                        <RowDefinition Height="55"/>
+                        <RowDefinition Height="55"/>
+                        <RowDefinition Height="55"/>
+                        <RowDefinition Height="55"/>
+                        <RowDefinition Height="110"/>
+                    </Grid.RowDefinitions>
+
+                    <!-- Left -->
+
+                    <TextBlock Grid.Row="0"
+                               VerticalAlignment="Center"
+                               FontWeight="SemiBold"
+                               Text="Vehicle Code"/>
+
+                    <TextBox Grid.Row="0"
+                             Grid.Column="1"
+                             Height="38"
+                             IsReadOnly="True"
+                             Text="AUTO-000001"/>
+
+                    <TextBlock Grid.Row="1"
+                               VerticalAlignment="Center"
+                               FontWeight="SemiBold"
+                               Text="Customer"/>
+
+                    <ComboBox Grid.Row="1"
+                              Grid.Column="1"
+                              Height="38"
+                              materialDesign:HintAssist.Hint="Select Customer"/>
+
+                    <TextBlock Grid.Row="2"
+                               VerticalAlignment="Center"
+                               FontWeight="SemiBold"
+                               Text="License Plate"/>
+
+                    <TextBox Grid.Row="2"
+                             Grid.Column="1"
+                             Height="38"
+                             materialDesign:HintAssist.Hint="License Plate"/>
+
+                    <TextBlock Grid.Row="3"
+                               VerticalAlignment="Center"
+                               FontWeight="SemiBold"
+                               Text="VIN Number"/>
+
+                    <TextBox Grid.Row="3"
+                             Grid.Column="1"
+                             Height="38"
+                             materialDesign:HintAssist.Hint="VIN Number"/>
+
+                    <TextBlock Grid.Row="4"
+                               VerticalAlignment="Center"
+                               FontWeight="SemiBold"
+                               Text="Engine Number"/>
+
+                    <TextBox Grid.Row="4"
+                             Grid.Column="1"
+                             Height="38"
+                             materialDesign:HintAssist.Hint="Engine Number"/>
+
+                    <TextBlock Grid.Row="5"
+                               VerticalAlignment="Center"
+                               FontWeight="SemiBold"
+                               Text="Chassis Number"/>
+
+                    <TextBox Grid.Row="5"
+                             Grid.Column="1"
+                             Height="38"
+                             materialDesign:HintAssist.Hint="Chassis Number"/>
+
+                    <TextBlock Grid.Row="6"
+                               VerticalAlignment="Center"
+                               FontWeight="SemiBold"
+                               Text="Brand"/>
+
+                    <ComboBox Grid.Row="6"
+                              Grid.Column="1"
+                              Height="38"/>
+
+                    <TextBlock Grid.Row="7"
+                               VerticalAlignment="Center"
+                               FontWeight="SemiBold"
+                               Text="Model"/>
+
+                    <ComboBox Grid.Row="7"
+                              Grid.Column="1"
+                              Height="38"/>
+
+                    <TextBlock Grid.Row="8"
+                               VerticalAlignment="Center"
+                               FontWeight="SemiBold"
+                               Text="Year"/>
+
+                    <ComboBox Grid.Row="8"
+                              Grid.Column="1"
+                              Height="38"/>
+
+                    <!-- Right -->
+
+                    <TextBlock Grid.Row="0"
+                               Grid.Column="3"
+                               VerticalAlignment="Center"
+                               FontWeight="SemiBold"
+                               Text="Color"/>
+
+                    <ComboBox Grid.Row="0"
+                              Grid.Column="4"
+                              Height="38"/>
+
+                    <TextBlock Grid.Row="1"
+                               Grid.Column="3"
+                               VerticalAlignment="Center"
+                               FontWeight="SemiBold"
+                               Text="Transmission"/>
+
+                    <ComboBox Grid.Row="1"
+                              Grid.Column="4"
+                              Height="38"/>
+
+                    <TextBlock Grid.Row="2"
+                               Grid.Column="3"
+                               VerticalAlignment="Center"
+                               FontWeight="SemiBold"
+                               Text="Fuel Type"/>
+
+                    <ComboBox Grid.Row="2"
+                              Grid.Column="4"
+                              Height="38"/>
+
+                    <TextBlock Grid.Row="3"
+                               Grid.Column="3"
+                               VerticalAlignment="Center"
+                               FontWeight="SemiBold"
+                               Text="Engine Capacity"/>
+
+                    <TextBox Grid.Row="3"
+                             Grid.Column="4"
+                             Height="38"
+                             materialDesign:HintAssist.Hint="2000 CC"/>
+
+                    <TextBlock Grid.Row="4"
+                               Grid.Column="3"
+                               VerticalAlignment="Center"
+                               FontWeight="SemiBold"
+                               Text="Mileage (KM)"/>
+
+                    <TextBox Grid.Row="4"
+                             Grid.Column="4"
+                             Height="38"
+                             materialDesign:HintAssist.Hint="Mileage"/>
+
+                    <TextBlock Grid.Row="5"
+                               Grid.Column="3"
+                               VerticalAlignment="Center"
+                               FontWeight="SemiBold"
+                               Text="Registration Expiry"/>
+
+                    <DatePicker Grid.Row="5"
+                                Grid.Column="4"
+                                Height="38"/>
+
+                    <TextBlock Grid.Row="6"
+                               Grid.Column="3"
+                               VerticalAlignment="Center"
+                               FontWeight="SemiBold"
+                               Text="Insurance Expiry"/>
+
+                    <DatePicker Grid.Row="6"
+                                Grid.Column="4"
+                                Height="38"/>
+
+                    <TextBlock Grid.Row="7"
+                               Grid.Column="3"
+                               VerticalAlignment="Center"
+                               FontWeight="SemiBold"
+                               Text="Status"/>
+
+                    <ComboBox Grid.Row="7"
+                              Grid.Column="4"
+                              Height="38"
+                              SelectedIndex="0">
+
+                        <ComboBoxItem Content="Active"/>
+                        <ComboBoxItem Content="Inactive"/>
+                        <ComboBoxItem Content="In Service"/>
+                        <ComboBoxItem Content="Sold"/>
+
+                    </ComboBox>
+
+                    <TextBlock Grid.Row="8"
+                               Grid.Column="3"
+                               VerticalAlignment="Top"
+                               Margin="0,10,0,0"
+                               FontWeight="SemiBold"
+                               Text="Remark"/>
+
+                    <TextBox Grid.Row="8"
+                             Grid.Column="4"
+                             Grid.RowSpan="2"
+                             Height="90"
+                             AcceptsReturn="True"
+                             TextWrapping="Wrap"
+                             VerticalScrollBarVisibility="Auto"
+                             materialDesign:HintAssist.Hint="Remark"/>
+
+                </Grid>
+
+            </StackPanel>
+
+        </Border>
+
+        <!-- Footer Buttons -->
+        <Border Grid.Row="4"
+                Background="White"
+                CornerRadius="8"
+                Padding="15"
+                BorderBrush="#DDDDDD"
+                BorderThickness="1">
+
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Right">
+
+                <Button Width="120"
+                        Height="40"
+                        Margin="5"
+                        Background="#2E7D32"
+                        Foreground="White"
+                        BorderThickness="0">
+
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="ContentSave" Margin="0,0,8,0"/>
+                        <TextBlock Text="Save"/>
+                    </StackPanel>
+
+                </Button>
+
+                <Button Width="120"
+                        Height="40"
+                        Margin="5"
+                        Background="#1976D2"
+                        Foreground="White"
+                        BorderThickness="0">
+
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Pencil" Margin="0,0,8,0"/>
+                        <TextBlock Text="Update"/>
+                    </StackPanel>
+
+                </Button>
+
+                <Button Width="120"
+                        Height="40"
+                        Margin="5">
+
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Broom" Margin="0,0,8,0"/>
+                        <TextBlock Text="Clear"/>
+                    </StackPanel>
+
+                </Button>
+
+                <Button Width="120"
+                        Height="40"
+                        Margin="5"
+                        Background="#D32F2F"
+                        Foreground="White"
+                        BorderThickness="0">
+
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="CloseCircle" Margin="0,0,8,0"/>
+                        <TextBlock Text="Close"/>
+                    </StackPanel>
+
+                </Button>
+
+            </StackPanel>
+
+        </Border>
+
+    </Grid>
+
+</Page>

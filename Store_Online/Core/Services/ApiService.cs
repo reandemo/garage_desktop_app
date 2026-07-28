@@ -9,56 +9,78 @@ namespace Store_Online.Core.Services
     public class ApiService : IApiService
     {
         private readonly HttpClient _client;
+        private readonly ConfigurationService _configuration;
+
+        private static readonly JsonSerializerSettings JsonSettings = new()
+        {
+            NullValueHandling = NullValueHandling.Ignore
+        };
 
         public string? Token { get; set; }
 
-        public ApiService()
+        public ApiService(ConfigurationService configuration)
         {
+            _configuration = configuration;
+
             _client = new HttpClient
             {
-                BaseAddress = new Uri("https://reanprogramming.com/api/v1/"),
+                BaseAddress = new Uri(_configuration.ApiUrl),
                 Timeout = TimeSpan.FromSeconds(30)
             };
 
             _client.DefaultRequestHeaders.Accept.Clear();
-
             _client.DefaultRequestHeaders.Accept.Add(
                 new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
         private void SetAuthorization()
         {
-            var token = string.IsNullOrWhiteSpace(Token)
+            string? token = string.IsNullOrWhiteSpace(Token)
                 ? AppSession.Token
                 : Token;
 
-            if (string.IsNullOrWhiteSpace(token))
-            {
-                _client.DefaultRequestHeaders.Authorization = null;
-            }
-            else
-            {
-                _client.DefaultRequestHeaders.Authorization =
-                    new AuthenticationHeaderValue("Bearer", token);
-            }
+            _client.DefaultRequestHeaders.Authorization =
+                string.IsNullOrWhiteSpace(token)
+                    ? null
+                    : new AuthenticationHeaderValue("Bearer", token);
         }
 
         private static StringContent CreateJsonContent(object data)
         {
+            ArgumentNullException.ThrowIfNull(data);
+
             return new StringContent(
-                JsonConvert.SerializeObject(data),
+                JsonConvert.SerializeObject(data, JsonSettings),
                 Encoding.UTF8,
                 "application/json");
         }
 
-        private async Task<T> ReadResponseAsync<T>(HttpResponseMessage response)
+        private static async Task<T> ReadResponseAsync<T>(HttpResponseMessage response)
         {
-            var json = await response.Content.ReadAsStringAsync();
+            string json = await response.Content.ReadAsStringAsync();
 
             if (!response.IsSuccessStatusCode)
             {
+                if (!string.IsNullOrWhiteSpace(json))
+                {
+                    try
+                    {
+                        ApiResponse<T>? apiResponse =
+                            JsonConvert.DeserializeObject<ApiResponse<T>>(json);
+
+                        if (apiResponse != null &&
+                            !string.IsNullOrWhiteSpace(apiResponse.Message))
+                        {
+                            throw new HttpRequestException(apiResponse.Message);
+                        }
+                    }
+                    catch (JsonException)
+                    {
+                    }
+                }
+
                 throw new HttpRequestException(
-                    $"HTTP {(int)response.StatusCode} ({response.ReasonPhrase}) : {json}");
+                    $"HTTP {(int)response.StatusCode} ({response.ReasonPhrase})");
             }
 
             if (string.IsNullOrWhiteSpace(json))
@@ -69,21 +91,16 @@ namespace Store_Online.Core.Services
             return JsonConvert.DeserializeObject<T>(json)!;
         }
 
-        public async Task<T> LoginAsync<T>(
-            string email,
-            string password)
+        public async Task<T> LoginAsync<T>(string email, string password)
         {
-            var data = new
+            var content = CreateJsonContent(new
             {
                 email,
                 password
-            };
+            });
 
-            var content = CreateJsonContent(data);
-
-            var response = await _client.PostAsync(
-                "auth/login",
-                content);
+            using HttpResponseMessage response =
+                await _client.PostAsync("auth/login", content);
 
             return await ReadResponseAsync<T>(response);
         }
@@ -91,59 +108,42 @@ namespace Store_Online.Core.Services
         public async Task<T> GetAsync<T>(string endpoint)
         {
             if (string.IsNullOrWhiteSpace(endpoint))
-            {
-                throw new ArgumentException(
-                    "Endpoint cannot be empty.",
-                    nameof(endpoint));
-            }
+                throw new ArgumentException("Endpoint cannot be empty.", nameof(endpoint));
 
             SetAuthorization();
 
-            var response = await _client.GetAsync(endpoint);
+            using HttpResponseMessage response =
+                await _client.GetAsync(endpoint);
 
             return await ReadResponseAsync<T>(response);
         }
 
-        public async Task<T> PostAsync<T>(
-            string endpoint,
-            object data)
+        public async Task<T> PostAsync<T>(string endpoint, object data)
         {
             if (string.IsNullOrWhiteSpace(endpoint))
-            {
-                throw new ArgumentException(
-                    "Endpoint cannot be empty.",
-                    nameof(endpoint));
-            }
+                throw new ArgumentException("Endpoint cannot be empty.", nameof(endpoint));
+
+            ArgumentNullException.ThrowIfNull(data);
 
             SetAuthorization();
 
-            var content = CreateJsonContent(data);
-
-            var response = await _client.PostAsync(
-                endpoint,
-                content);
+            using HttpResponseMessage response =
+                await _client.PostAsync(endpoint, CreateJsonContent(data));
 
             return await ReadResponseAsync<T>(response);
         }
 
-        public async Task<T> PutAsync<T>(
-            string endpoint,
-            object data)
+        public async Task<T> PutAsync<T>(string endpoint, object data)
         {
             if (string.IsNullOrWhiteSpace(endpoint))
-            {
-                throw new ArgumentException(
-                    "Endpoint cannot be empty.",
-                    nameof(endpoint));
-            }
+                throw new ArgumentException("Endpoint cannot be empty.", nameof(endpoint));
+
+            ArgumentNullException.ThrowIfNull(data);
 
             SetAuthorization();
 
-            var content = CreateJsonContent(data);
-
-            var response = await _client.PutAsync(
-                endpoint,
-                content);
+            using HttpResponseMessage response =
+                await _client.PutAsync(endpoint, CreateJsonContent(data));
 
             return await ReadResponseAsync<T>(response);
         }
@@ -151,15 +151,12 @@ namespace Store_Online.Core.Services
         public async Task<T> DeleteAsync<T>(string endpoint)
         {
             if (string.IsNullOrWhiteSpace(endpoint))
-            {
-                throw new ArgumentException(
-                    "Endpoint cannot be empty.",
-                    nameof(endpoint));
-            }
+                throw new ArgumentException("Endpoint cannot be empty.", nameof(endpoint));
 
             SetAuthorization();
 
-            var response = await _client.DeleteAsync(endpoint);
+            using HttpResponseMessage response =
+                await _client.DeleteAsync(endpoint);
 
             return await ReadResponseAsync<T>(response);
         }

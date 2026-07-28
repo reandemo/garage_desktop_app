@@ -1,6 +1,5 @@
 using Microsoft.Data.SqlClient;
 using Store_Online.Core.Logging;
-using System;
 using System.Data;
 
 namespace Store_Online.Core.Database
@@ -9,11 +8,12 @@ namespace Store_Online.Core.Database
     {
         private readonly DbConnectionFactory _connectionFactory;
 
-        // Default SQL timeout (seconds)
         private const int CommandTimeout = 30;
 
         public SqlExecutor(DbConnectionFactory connectionFactory)
         {
+            ArgumentNullException.ThrowIfNull(connectionFactory);
+
             _connectionFactory = connectionFactory;
         }
 
@@ -70,7 +70,7 @@ namespace Store_Online.Core.Database
             catch (Exception ex)
             {
                 FileLogger.Log(
-                    "SqlExecutor.Query",
+                    nameof(Query),
                     ex,
                     sql,
                     parameters);
@@ -108,7 +108,7 @@ namespace Store_Online.Core.Database
             catch (Exception ex)
             {
                 FileLogger.Log(
-                    "SqlExecutor.QueryDataSet",
+                    nameof(QueryDataSet),
                     ex,
                     sql,
                     parameters);
@@ -139,7 +139,7 @@ namespace Store_Online.Core.Database
             catch (Exception ex)
             {
                 FileLogger.Log(
-                    "SqlExecutor.Execute",
+                    nameof(Execute),
                     ex,
                     sql,
                     parameters);
@@ -165,20 +165,21 @@ namespace Store_Online.Core.Database
                 using SqlCommand command =
                     CreateCommand(connection, sql, commandType, parameters);
 
-                object? result =
-                    command.ExecuteScalar();
+                object? result = command.ExecuteScalar();
 
                 if (result == null || result == DBNull.Value)
                     return default;
 
-                return (T)Convert.ChangeType(
-                    result,
-                    typeof(T));
+                Type targetType =
+                    Nullable.GetUnderlyingType(typeof(T))
+                    ?? typeof(T);
+
+                return (T)Convert.ChangeType(result, targetType);
             }
             catch (Exception ex)
             {
                 FileLogger.Log(
-                    "SqlExecutor.ExecuteScalar",
+                    nameof(ExecuteScalar),
                     ex,
                     sql,
                     parameters);
@@ -195,6 +196,8 @@ namespace Store_Online.Core.Database
             string procedureName,
             params SqlParameter[] parameters)
         {
+            ArgumentException.ThrowIfNullOrWhiteSpace(procedureName);
+
             return Query(
                 procedureName,
                 CommandType.StoredProcedure,
@@ -205,6 +208,8 @@ namespace Store_Online.Core.Database
             string procedureName,
             params SqlParameter[] parameters)
         {
+            ArgumentException.ThrowIfNullOrWhiteSpace(procedureName);
+
             return QueryDataSet(
                 procedureName,
                 CommandType.StoredProcedure,
@@ -215,6 +220,8 @@ namespace Store_Online.Core.Database
             string procedureName,
             params SqlParameter[] parameters)
         {
+            ArgumentException.ThrowIfNullOrWhiteSpace(procedureName);
+
             return Execute(
                 procedureName,
                 CommandType.StoredProcedure,
@@ -225,6 +232,8 @@ namespace Store_Online.Core.Database
             string procedureName,
             params SqlParameter[] parameters)
         {
+            ArgumentException.ThrowIfNullOrWhiteSpace(procedureName);
+
             return ExecuteScalar<T>(
                 procedureName,
                 CommandType.StoredProcedure,
@@ -240,6 +249,8 @@ namespace Store_Online.Core.Database
             object? value,
             SqlDbType type)
         {
+            ArgumentException.ThrowIfNullOrWhiteSpace(name);
+
             return new SqlParameter(name, type)
             {
                 Value = value ?? DBNull.Value

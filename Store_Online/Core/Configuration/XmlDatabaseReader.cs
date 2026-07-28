@@ -1,7 +1,6 @@
 ﻿using Store_Online.Core.Logging;
 using Store_Online.Core.Security;
 using System.IO;
-using System.Windows;
 using System.Xml.Linq;
 
 namespace Store_Online.Core.Configuration;
@@ -20,34 +19,39 @@ public class XmlDatabaseReader
         try
         {
             if (!File.Exists(file))
-                throw new FileNotFoundException(file);
+                throw new FileNotFoundException(
+                    "Configuration file not found.",
+                    file);
 
             XDocument xml = XDocument.Load(file);
 
-            string vUser = _encryption.Encrypt("sa");
+            XElement root = xml.Root
+                ?? throw new InvalidDataException(
+                    "Invalid configuration file.");
 
-            FileLogger.Log(
-                "Configuration " + xml.Root!.Element("Database")?.Value ?? "",
-                "Database configuration loaded successfully from sys.xml.");
-
-
-            return new DatabaseSettings
+            DatabaseSettings settings = new()
             {
-                Server = xml.Root!.Element("Server")?.Value ?? "",
+                Server = root.Element("Server")?.Value ?? string.Empty,
 
-                Database = xml.Root.Element("Database")?.Value ?? "",
+                Database = root.Element("Database")?.Value ?? string.Empty,
 
                 User = _encryption.Decrypt(
-                    xml.Root.Element("User")?.Value ?? ""),
+                    root.Element("User")?.Value ?? string.Empty),
 
                 Password = _encryption.Decrypt(
-                    xml.Root.Element("Password")?.Value ?? "")
+                    root.Element("Password")?.Value ?? string.Empty)
             };
+
+            FileLogger.Log(
+                $"Configuration ({settings.Database})",
+                "Database configuration loaded successfully from sys.xml.");
+
+            return settings;
         }
         catch (Exception ex)
         {
             FileLogger.Log(
-                "XmlDatabaseReader.Load",
+                nameof(XmlDatabaseReader),
                 ex);
 
             throw;

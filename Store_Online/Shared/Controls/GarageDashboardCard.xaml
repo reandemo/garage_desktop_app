@@ -1,0 +1,126 @@
+﻿<UserControl x:Class="Store_Online.Shared.Controls.GarageDashboardCard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d"
+             d:DesignHeight="180"
+             d:DesignWidth="320">
+
+    <Border Style="{StaticResource GarageCard}"
+            Padding="20">
+
+        <Grid>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!-- Header -->
+
+            <Grid>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel>
+
+                    <TextBlock
+                        Text="{Binding Title, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                        Style="{StaticResource SubtitleText}"
+                        FontWeight="SemiBold"/>
+
+                    <TextBlock
+                        Margin="0,4,0,0"
+                        Text="{Binding Subtitle, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                        Style="{StaticResource CaptionText}"/>
+
+                </StackPanel>
+
+                <Border Grid.Column="1"
+                        Width="48"
+                        Height="48"
+                        CornerRadius="24"
+                        Background="{Binding IconBackground, RelativeSource={RelativeSource AncestorType=UserControl}}">
+
+                    <materialDesign:PackIcon
+                        Width="24"
+                        Height="24"
+                        Kind="{Binding IconKind, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                        Foreground="White"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"/>
+
+                </Border>
+
+            </Grid>
+
+            <!-- Value -->
+
+            <TextBlock
+                Grid.Row="1"
+                Margin="0,20,0,0"
+                Text="{Binding Value, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                FontSize="34"
+                FontWeight="Bold"
+                Foreground="{StaticResource TextPrimaryBrush}"/>
+
+            <!-- Chart Placeholder -->
+
+            <Border Grid.Row="2"
+                    Margin="0,16"
+                    CornerRadius="6"
+                    Background="{StaticResource SurfaceBrush}"
+                    BorderBrush="{StaticResource BorderBrush}"
+                    BorderThickness="1">
+
+                <Viewbox Margin="10">
+
+                    <Path Stroke="{StaticResource PrimaryBrush}"
+                          StrokeThickness="2"
+                          Data="M0,40 L20,28 L40,32 L60,18 L80,24 L100,10 L120,16"/>
+
+                </Viewbox>
+
+            </Border>
+
+            <!-- Footer -->
+
+            <DockPanel Grid.Row="3">
+
+                <StackPanel Orientation="Horizontal"
+                            DockPanel.Dock="Left">
+
+                    <materialDesign:PackIcon
+                        Width="18"
+                        Height="18"
+                        Kind="{Binding TrendIcon, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                        Foreground="{Binding TrendBrush, RelativeSource={RelativeSource AncestorType=UserControl}}"/>
+
+                    <TextBlock
+                        Margin="6,0,0,0"
+                        Foreground="{Binding TrendBrush, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                        FontWeight="SemiBold"
+                        Text="{Binding TrendText, RelativeSource={RelativeSource AncestorType=UserControl}}"/>
+
+                </StackPanel>
+
+                <TextBlock
+                    DockPanel.Dock="Right"
+                    HorizontalAlignment="Right"
+                    Style="{StaticResource CaptionText}"
+                    Text="{Binding Footer, RelativeSource={RelativeSource AncestorType=UserControl}}"/>
+
+            </DockPanel>
+
+        </Grid>
+
+    </Border>
+
+</UserControl>

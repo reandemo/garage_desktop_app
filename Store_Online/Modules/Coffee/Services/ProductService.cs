@@ -5,14 +5,15 @@ namespace Store_Online.Modules.Coffee.Services;
 
 public class ProductService
 {
-    private readonly ApiService _api =
-        new();
+    private readonly IApiService _api;
 
-    public async Task<List<ProductModel>>
-        GetProductsAsync()
+    public ProductService(IApiService api)
     {
-        return await _api.GetAsync<
-            List<ProductModel>>
-            ("products");
+        _api = api;
+    }
+
+    public async Task<List<ProductModel>> GetProductsAsync()
+    {
+        return await _api.GetAsync<List<ProductModel>>("products");
     }
 }

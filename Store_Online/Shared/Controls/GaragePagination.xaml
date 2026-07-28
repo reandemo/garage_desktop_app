@@ -1,0 +1,180 @@
+﻿<UserControl x:Class="Store_Online.Shared.Controls.GaragePagination"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d"
+             Height="40">
+
+    <UserControl.Resources>
+
+        <Style x:Key="PaginationButtonStyle"
+               TargetType="Button">
+
+            <Setter Property="Width" Value="30"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Margin" Value="2"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+
+        </Style>
+
+    </UserControl.Resources>
+
+    <Border Background="White"
+            BorderBrush="{StaticResource BorderBrush}"
+            BorderThickness="1"
+            Padding="10,4">
+
+        <Grid>
+
+            <Grid.ColumnDefinitions>
+
+                <ColumnDefinition Width="*" />
+
+                <ColumnDefinition Width="Auto"/>
+
+            </Grid.ColumnDefinitions>
+
+            <!-- Left -->
+
+            <TextBlock x:Name="txtSummary"
+                       VerticalAlignment="Center"
+                       FontSize="13"
+                       FontWeight="SemiBold"
+                       Foreground="{StaticResource TextPrimaryBrush}"
+                       Text="Showing 0–0 of 0 records"/>
+
+            <!-- Right -->
+
+            <StackPanel Grid.Column="1"
+                        Orientation="Horizontal"
+                        VerticalAlignment="Center">
+
+                <!-- First -->
+
+                <Button x:Name="btnFirst"
+                        Style="{StaticResource PaginationButtonStyle}"
+                        Click="btnFirst_Click"
+                        ToolTip="First Page">
+
+                    <materialDesign:PackIcon
+                        Kind="PageFirst"
+                        Width="18"
+                        Height="18"
+                        Foreground="{StaticResource TextPrimaryBrush}"/>
+
+                </Button>
+
+                <!-- Previous -->
+
+                <Button x:Name="btnPrevious"
+                        Style="{StaticResource PaginationButtonStyle}"
+                        Click="btnPrevious_Click"
+                        ToolTip="Previous Page">
+
+                    <materialDesign:PackIcon
+                        Kind="ChevronLeft"
+                        Width="18"
+                        Height="18"
+                        Foreground="{StaticResource TextPrimaryBrush}"/>
+
+                </Button>
+
+                <!-- Page -->
+
+                <Border Margin="8,0"
+                        Padding="10,4"
+                        Background="#F6F7F9"
+                        CornerRadius="4">
+
+                    <StackPanel Orientation="Horizontal">
+
+                        <TextBlock Text="Page"
+                                   FontWeight="SemiBold"
+                                   VerticalAlignment="Center"/>
+
+                        <TextBlock x:Name="txtCurrentPage"
+                                   Margin="6,0,0,0"
+                                   FontWeight="Bold"
+                                   VerticalAlignment="Center"
+                                   Text="1"/>
+
+                        <TextBlock Margin="4,0"
+                                   VerticalAlignment="Center"
+                                   Text="of"/>
+
+                        <TextBlock x:Name="txtTotalPages"
+                                   FontWeight="Bold"
+                                   VerticalAlignment="Center"
+                                   Text="1"/>
+
+                    </StackPanel>
+
+                </Border>
+
+                <!-- Next -->
+
+                <Button x:Name="btnNext"
+                        Style="{StaticResource PaginationButtonStyle}"
+                        Click="btnNext_Click"
+                        ToolTip="Next Page">
+
+                    <materialDesign:PackIcon
+                        Kind="ChevronRight"
+                        Width="18"
+                        Height="18"
+                        Foreground="{StaticResource TextPrimaryBrush}"/>
+
+                </Button>
+
+                <!-- Last -->
+
+                <Button x:Name="btnLast"
+                        Style="{StaticResource PaginationButtonStyle}"
+                        Click="btnLast_Click"
+                        ToolTip="Last Page">
+
+                    <materialDesign:PackIcon
+                        Kind="PageLast"
+                        Width="18"
+                        Height="18"
+                        Foreground="{StaticResource TextPrimaryBrush}"/>
+
+                </Button>
+
+                <Border Width="1"
+                        Height="20"
+                        Margin="12,0"
+                        Background="{StaticResource DividerBrush}"/>
+
+                <TextBlock Margin="0,0,6,0"
+                           VerticalAlignment="Center"
+                           FontWeight="SemiBold"
+                           Foreground="{StaticResource TextPrimaryBrush}"
+                           Text="Size"/>
+
+                <ComboBox x:Name="cboPageSize"
+                          Width="65"
+                          Height="30"
+                          SelectedIndex="1"
+                          SelectionChanged="cboPageSize_SelectionChanged">
+
+                    <ComboBoxItem Content="10"/>
+                    <ComboBoxItem Content="25"/>
+                    <ComboBoxItem Content="50"/>
+                    <ComboBoxItem Content="100"/>
+
+                </ComboBox>
+
+            </StackPanel>
+
+        </Grid>
+
+    </Border>
+
+</UserControl>

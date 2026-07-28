@@ -1,0 +1,107 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- ========================================================= -->
+    <!-- Primary Brand -->
+    <!-- ========================================================= -->
+
+    <Color x:Key="PrimaryColor">#2563EB</Color>
+    <Color x:Key="PrimaryDarkColor">#1E40AF</Color>
+    <Color x:Key="PrimaryLightColor">#DBEAFE</Color>
+
+    <!-- ========================================================= -->
+    <!-- Accent -->
+    <!-- ========================================================= -->
+
+    <Color x:Key="AccentColor">#0EA5E9</Color>
+
+    <!-- ========================================================= -->
+    <!-- Success -->
+    <!-- ========================================================= -->
+
+    <Color x:Key="SuccessColor">#16A34A</Color>
+
+    <!-- ========================================================= -->
+    <!-- Warning -->
+    <!-- ========================================================= -->
+
+    <Color x:Key="WarningColor">#F59E0B</Color>
+
+    <!-- ========================================================= -->
+    <!-- Danger -->
+    <!-- ========================================================= -->
+
+    <Color x:Key="DangerColor">#DC2626</Color>
+
+    <!-- ========================================================= -->
+    <!-- Information -->
+    <!-- ========================================================= -->
+
+    <Color x:Key="InfoColor">#0284C7</Color>
+
+    <!-- ========================================================= -->
+    <!-- Background -->
+    <!-- ========================================================= -->
+
+    <Color x:Key="WindowBackgroundColor">#F5F7FA</Color>
+
+    <Color x:Key="PageBackgroundColor">#F8FAFC</Color>
+
+    <Color x:Key="CardBackgroundColor">#FFFFFF</Color>
+
+    <!-- ========================================================= -->
+    <!-- Surface -->
+    <!-- ========================================================= -->
+
+    <Color x:Key="SurfaceColor">#FFFFFF</Color>
+
+    <Color x:Key="SurfaceSecondaryColor">#F1F5F9</Color>
+
+    <!-- ========================================================= -->
+    <!-- Border -->
+    <!-- ========================================================= -->
+
+    <Color x:Key="BorderColor">#D1D5DB</Color>
+
+    <Color x:Key="DividerColor">#E5E7EB</Color>
+
+    <!-- ========================================================= -->
+    <!-- Text -->
+    <!-- ========================================================= -->
+
+    <Color x:Key="TextPrimaryColor">#111827</Color>
+
+    <Color x:Key="TextSecondaryColor">#6B7280</Color>
+
+    <Color x:Key="TextDisabledColor">#9CA3AF</Color>
+
+    <!-- ========================================================= -->
+    <!-- Toolbar -->
+    <!-- ========================================================= -->
+
+    <Color x:Key="ToolbarBackgroundColor">#FFFFFF</Color>
+
+    <Color x:Key="ToolbarHoverColor">#EEF4FF</Color>
+
+    <Color x:Key="ToolbarPressedColor">#DCEBFF</Color>
+
+    <!-- ========================================================= -->
+    <!-- Menu -->
+    <!-- ========================================================= -->
+
+    <Color x:Key="MenuBackgroundColor">#1F2937</Color>
+
+    <Color x:Key="MenuHoverColor">#374151</Color>
+
+    <!-- ========================================================= -->
+    <!-- DataGrid -->
+    <!-- ========================================================= -->
+
+    <Color x:Key="GridHeaderColor">#F3F4F6</Color>
+
+    <Color x:Key="GridRowHoverColor">#EFF6FF</Color>
+
+    <Color x:Key="GridSelectedColor">#DBEAFE</Color>
+
+</ResourceDictionary>

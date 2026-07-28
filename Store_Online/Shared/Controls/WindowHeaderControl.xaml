@@ -1,0 +1,55 @@
+﻿<UserControl
+    x:Class="Store_Online.Shared.Controls.WindowHeaderControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Margin="0,0,0,20">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Border
+            Width="48"
+            Height="48"
+            VerticalAlignment="Center"
+            Background="#2563EB"
+            CornerRadius="24">
+
+            <materialDesign:PackIcon
+                Width="24"
+                Height="24"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Foreground="White"
+                Kind="{Binding IconKind, RelativeSource={RelativeSource AncestorType=UserControl}}" />
+
+        </Border>
+
+        <StackPanel
+            Grid.Column="1"
+            Margin="15,0,0,0"
+            VerticalAlignment="Center">
+
+            <TextBlock
+                FontSize="22"
+                FontWeight="SemiBold"
+                Foreground="{DynamicResource MaterialDesignBody}"
+                Text="{Binding Title, RelativeSource={RelativeSource AncestorType=UserControl}}" />
+
+            <TextBlock
+                Margin="0,3,0,0"
+                FontSize="13"
+                Foreground="{DynamicResource MaterialDesignBodyLight}"
+                Text="{Binding Subtitle, RelativeSource={RelativeSource AncestorType=UserControl}}" />
+
+        </StackPanel>
+
+    </Grid>
+
+</UserControl>

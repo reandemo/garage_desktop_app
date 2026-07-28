@@ -47,8 +47,12 @@
         </Grid.RowDefinitions>
 
         <!-- Header -->
+        <!-- Header -->
         <controls:GarageHeader
-            Grid.Row="0"/>
+    x:Name="Header"
+    Grid.Row="0"
+    Title="{Binding [APP_NAME], Source={StaticResource Lang}}"
+    Subtitle="Store Online ERP" />
 
         <!-- Top Menu -->
         <controls:GarageTopMenu

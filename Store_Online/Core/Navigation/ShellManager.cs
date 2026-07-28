@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
 
 namespace Store_Online.Core.Navigation
 {
@@ -12,9 +7,6 @@ namespace Store_Online.Core.Navigation
         private static readonly Lazy<ShellManager> _instance =
             new(() => new ShellManager());
 
-        /// <summary>
-        /// Singleton Instance
-        /// </summary>
         public static ShellManager Instance => _instance.Value;
 
         private Frame? _mainFrame;
@@ -23,84 +15,105 @@ namespace Store_Online.Core.Navigation
         {
         }
 
-        /// <summary>
-        /// Initialize application shell.
-        /// Call once from GarageMainWindow.
-        /// </summary>
-        /// <param name="frame"></param>
         public void Initialize(Frame frame)
         {
+            ArgumentNullException.ThrowIfNull(frame);
+
+            if (_mainFrame == frame)
+                return;
+
+            if (_mainFrame != null)
+                throw new InvalidOperationException(
+                    "ShellManager has already been initialized.");
+
             _mainFrame = frame;
         }
 
-        /// <summary>
-        /// Navigate to page instance.
-        /// </summary>
         public void Navigate(Page page)
         {
             if (_mainFrame == null)
                 throw new InvalidOperationException(
                     "ShellManager has not been initialized.");
 
+            ArgumentNullException.ThrowIfNull(page);
+
+            if (_mainFrame.Content?.GetType() == page.GetType())
+                return;
+
             _mainFrame.Navigate(page);
         }
 
-        /// <summary>
-        /// Navigate by page type.
-        /// </summary>
         public void Navigate<T>()
             where T : Page, new()
         {
             Navigate(new T());
         }
 
-        /// <summary>
-        /// Can Go Back
-        /// </summary>
+        public void Navigate(Type pageType)
+        {
+            ArgumentNullException.ThrowIfNull(pageType);
+
+            if (!typeof(Page).IsAssignableFrom(pageType))
+                throw new ArgumentException(
+                    $"{pageType.FullName} is not a Page.",
+                    nameof(pageType));
+
+            if (Activator.CreateInstance(pageType) is not Page page)
+                throw new InvalidOperationException(
+                    $"Unable to create page: {pageType.FullName}");
+
+            Navigate(page);
+        }
+
         public bool CanGoBack =>
             _mainFrame?.CanGoBack ?? false;
 
-        /// <summary>
-        /// Can Go Forward
-        /// </summary>
         public bool CanGoForward =>
             _mainFrame?.CanGoForward ?? false;
 
-        /// <summary>
-        /// Go Back
-        /// </summary>
         public void GoBack()
         {
             if (CanGoBack)
                 _mainFrame!.GoBack();
         }
 
-        /// <summary>
-        /// Go Forward
-        /// </summary>
         public void GoForward()
         {
             if (CanGoForward)
                 _mainFrame!.GoForward();
         }
 
-        /// <summary>
-        /// Refresh Current Page
-        /// </summary>
         public void Refresh()
         {
             _mainFrame?.Refresh();
         }
 
-        /// <summary>
-        /// Current Page
-        /// </summary>
+        public void ClearHistory()
+        {
+            if (_mainFrame == null)
+                return;
+
+            while (_mainFrame.CanGoBack)
+                _mainFrame.RemoveBackEntry();
+        }
+
+        public void Reset()
+        {
+            if (_mainFrame == null)
+                return;
+
+            while (_mainFrame.CanGoBack)
+            {
+                _mainFrame.RemoveBackEntry();
+            }
+
+            _mainFrame.Content = null;
+            _mainFrame = null;
+        }
+
         public Page? CurrentPage =>
             _mainFrame?.Content as Page;
 
-        /// <summary>
-        /// Main Frame
-        /// </summary>
         public Frame? MainFrame => _mainFrame;
     }
 }

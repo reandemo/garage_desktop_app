@@ -1,17 +1,22 @@
-using Store_Online.Core.Services;
-using Store_Online.MainForms;
-using Store_Online.Models;
-using Store_Online.Shared.Notifications;
-using System.Text.RegularExpressions;
-using System.Windows;
-using System.Windows.Input;
-
 namespace Store_Online.Authentication
 {
+    using System.Diagnostics;
+    using System.Text.RegularExpressions;
+    using System.Windows;
+    using System.Windows.Controls;
+    using System.Windows.Input;
+    using Store_Online.Core.Services;
+    using Store_Online.MainForms;
+    using Store_Online.Models;
+    using Store_Online.Shared.Notifications;
+
     public partial class Login : Window
     {
-        private readonly ApiService _apiService = new();
+        private readonly ApiService _apiService;
+
         private bool _isLoading;
+
+        private bool _showPassword;
 
         [GeneratedRegex(@"^[^@\s]+@[^@\s]+\.[^@\s]+$")]
         private static partial Regex EmailRegex();
@@ -20,45 +25,52 @@ namespace Store_Online.Authentication
         {
             InitializeComponent();
 
-            Loaded += (_, _) => txtUserlogin.Focus();
+            _apiService = App.GetService<ApiService>();
 
+            Loaded += Login_Loaded;
+        }
+
+        private void Login_Loaded(object sender, RoutedEventArgs e)
+        {
+            txtUserlogin.Focus();
 #if DEBUG
-            // Demo account
             txtUserlogin.Text = "garage@gmail.com";
             txtPassword.Password = "ABCabc123$$";
 #endif
         }
 
-        #region Navigation
-
         private void OpenMainForm()
         {
-            Window? mainWindow = AppSession.SystemCode.Trim().ToUpperInvariant() switch
+            Stopwatch sw = Stopwatch.StartNew();
+
+            Window? window = AppSession.SystemCode.Trim().ToUpperInvariant() switch
             {
                 "COFFEE" => new CoffeeMainWindow(),
                 "GARAGE" => new GarageMainWindow(),
                 _ => null
             };
 
-            if (mainWindow == null)
+            Debug.WriteLine($"Create Window : {sw.ElapsedMilliseconds} ms");
+
+            if (window == null)
             {
                 NotificationService.Error($"Unknown system: {AppSession.SystemCode}");
                 return;
             }
 
-            mainWindow.Show();
+            sw.Restart();
+
+            window.Show();
+
+            Debug.WriteLine($"Show Window : {sw.ElapsedMilliseconds} ms");
+
             Close();
         }
 
-        #endregion
-
-        #region Validation
-
-        private async Task<bool> ValidateLoginAsync()
+        private async Task<bool> ValidateLoginAsync(
+            string email,
+            string password)
         {
-            string email = txtUserlogin.Text.Trim();
-            string password = txtPassword.Password.Trim();
-
             if (string.IsNullOrWhiteSpace(email))
             {
                 await Notifier.ShowAsync(
@@ -66,6 +78,7 @@ namespace Store_Online.Authentication
                     NotificationType.Warning);
 
                 txtUserlogin.Focus();
+
                 return false;
             }
 
@@ -76,6 +89,7 @@ namespace Store_Online.Authentication
                     NotificationType.Warning);
 
                 txtUserlogin.Focus();
+
                 return false;
             }
 
@@ -86,6 +100,7 @@ namespace Store_Online.Authentication
                     NotificationType.Warning);
 
                 txtPassword.Focus();
+
                 return false;
             }
 
@@ -96,47 +111,54 @@ namespace Store_Online.Authentication
                     NotificationType.Warning);
 
                 txtPassword.Focus();
+
                 return false;
             }
 
             return true;
         }
 
-        #endregion
+        private void SetLoading(bool loading)
+        {
+            _isLoading = loading;
 
-        #region Login
+            btnLogin.IsEnabled = !loading;
+            txtUserlogin.IsEnabled = !loading;
+            txtPassword.IsEnabled = !loading;
+            txtPasswordVisible.IsEnabled = !loading;
+
+            btnLogin.Content = loading
+                ? "Signing In..."
+                : "Login";
+
+            Mouse.OverrideCursor = loading
+                ? Cursors.Wait
+                : null;
+        }
 
         private async void Btn_login_Click(object sender, RoutedEventArgs e)
         {
             if (_isLoading)
-            {
                 return;
-            }
 
-            if (!await ValidateLoginAsync())
-            {
+            string email = txtUserlogin.Text.Trim();
+            string password = txtPassword.Password.Trim();
+
+            if (!await ValidateLoginAsync(email, password))
                 return;
-            }
 
             try
             {
-                _isLoading = true;
+                SetLoading(true);
 
-                btnLogin.IsEnabled = false;
-                txtUserlogin.IsEnabled = false;
-                txtPassword.IsEnabled = false;
+                ApiResponse<LoginResponse>? result =
+                    await _apiService.LoginAsync<ApiResponse<LoginResponse>>(
+                        email,
+                        password);
 
-                btnLogin.Content = "Signing In...";
-                Mouse.OverrideCursor = Cursors.Wait;
-
-                string email = txtUserlogin.Text.Trim();
-                string password = txtPassword.Password.Trim();
-
-                var result = await _apiService.LoginAsync<ApiResponse<LoginResponse>>(
-                    email,
-                    password);
-
-                if (!result.Success || result.Data == null || result.Data.User == null)
+                if (!result.Success ||
+                    result.Data == null ||
+                    result.Data.User == null)
                 {
                     await Notifier.ShowAsync(
                         result.Message ?? "Login failed.",
@@ -148,7 +170,6 @@ namespace Store_Online.Authentication
                     return;
                 }
 
-                // Save Session
                 AppSession.Token = result.Data.Token;
                 AppSession.UserId = result.Data.User.Id;
                 AppSession.Email = result.Data.User.Email ?? string.Empty;
@@ -161,31 +182,20 @@ namespace Store_Online.Authentication
                 NotificationService.Success(
                     result.Message ?? "Login successful.");
 
+
                 OpenMainForm();
             }
             catch (Exception ex)
             {
                 await Notifier.ShowAsync(
-                    $"Unable to login.\n{ex.Message}",
+                    ex.Message,
                     NotificationType.Error);
             }
             finally
             {
-                _isLoading = false;
-
-                btnLogin.IsEnabled = true;
-                txtUserlogin.IsEnabled = true;
-                txtPassword.IsEnabled = true;
-
-                btnLogin.Content = "Login";
-
-                Mouse.OverrideCursor = null;
+                SetLoading(false);
             }
         }
-
-        #endregion
-
-        #region Events
 
         private void Btn_setupstore_Click(object sender, RoutedEventArgs e)
         {
@@ -210,6 +220,53 @@ namespace Store_Online.Authentication
             DragMove();
         }
 
-        #endregion
+        private void PasswordIcon_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            _showPassword = !_showPassword;
+
+            if (_showPassword)
+            {
+                txtPasswordVisible.Text = txtPassword.Password;
+
+                txtPassword.Visibility = Visibility.Collapsed;
+                txtPasswordVisible.Visibility = Visibility.Visible;
+
+                MaterialDesignThemes.Wpf.TextFieldAssist.SetLeadingIcon(
+                    txtPasswordVisible,
+                    MaterialDesignThemes.Wpf.PackIconKind.LockOpen);
+
+                txtPasswordVisible.Focus();
+                txtPasswordVisible.CaretIndex = txtPasswordVisible.Text.Length;
+            }
+            else
+            {
+                txtPassword.Password = txtPasswordVisible.Text;
+
+                txtPasswordVisible.Visibility = Visibility.Collapsed;
+                txtPassword.Visibility = Visibility.Visible;
+
+                MaterialDesignThemes.Wpf.TextFieldAssist.SetLeadingIcon(
+                    txtPassword,
+                    MaterialDesignThemes.Wpf.PackIconKind.Lock);
+
+                txtPassword.Focus();
+            }
+        }
+
+        private void txtPassword_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            if (!_showPassword)
+            {
+                txtPasswordVisible.Text = txtPassword.Password;
+            }
+        }
+
+        private void txtPasswordVisible_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (_showPassword)
+            {
+                txtPassword.Password = txtPasswordVisible.Text;
+            }
+        }
     }
 }

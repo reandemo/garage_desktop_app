@@ -8,7 +8,16 @@ namespace Store_Online.Core.Services
 
         public string Version => "1.0.0";
 
-        // Change this later for Production
-        public string ApiUrl => "https://localhost:5001/api";
+#if DEBUG
+        public string ApiUrl => "https://reanprogramming.com/api/v1/";
+#else
+        public string ApiUrl => "https://reanprogramming.com/api/v1/";
+#endif
+
+        public TimeSpan ApiTimeout => TimeSpan.FromSeconds(30);
+
+        public string DefaultLanguage => "en";
+
+        public bool EnableLogging => true;
     }
 }

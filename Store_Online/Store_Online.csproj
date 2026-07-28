@@ -11,6 +11,13 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		<Compile Remove="Shared\AssetsIcons\**" />
+		<EmbeddedResource Remove="Shared\AssetsIcons\**" />
+		<None Remove="Shared\AssetsIcons\**" />
+		<Page Remove="Shared\AssetsIcons\**" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<None Remove="Shared\Assets\Flags\cn.png" />
 		<None Remove="Shared\Assets\Flags\kh.png" />
 		<None Remove="Shared\Assets\Flags\us.png" />
@@ -23,7 +30,7 @@
 
 	<ItemGroup>
 		<Resource Include="Shared\Assets\Flags\jp.png">
-		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+			<CopyToOutputDirectory>Never</CopyToOutputDirectory>
 		</Resource>
 		<Resource Include="Shared\Assets\Fonts\KhmerOS.ttf">
 			<CopyToOutputDirectory>Never</CopyToOutputDirectory>
@@ -88,10 +95,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<Folder Include="Modules\Garage\Dialogs\" />
 		<Folder Include="Modules\Hotel\" />
 		<Folder Include="Resources\Images\" />
 		<Folder Include="Resources\Icons\" />
-		<Folder Include="Shared\AssetsIcons\" />
+		<Folder Include="Views\" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -107,6 +115,14 @@
 			<Generator>ResXFileCodeGenerator</Generator>
 			<LastGenOutput>Strings.Designer.cs</LastGenOutput>
 		</EmbeddedResource>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EditorConfigFiles Remove="D:\_Dev_DeskApp\Store_Online\Store_Online\.editorconfig" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Include="D:\_Dev_DeskApp\Store_Online\Store_Online\.editorconfig" />
 	</ItemGroup>
 
 </Project>

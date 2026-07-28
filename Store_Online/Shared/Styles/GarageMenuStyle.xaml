@@ -1,0 +1,105 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- ========================================================= -->
+    <!-- Top Menu -->
+    <!-- ========================================================= -->
+
+    <Style x:Key="GarageTopMenu"
+           TargetType="Menu">
+
+        <Setter Property="Background"
+                Value="{StaticResource MenuBackgroundBrush}"/>
+
+        <Setter Property="Foreground"
+                Value="White"/>
+
+        <Setter Property="FontFamily"
+                Value="Segoe UI"/>
+
+        <Setter Property="FontSize"
+                Value="13"/>
+
+        <Setter Property="BorderThickness"
+                Value="0"/>
+
+        <Setter Property="Padding"
+                Value="8,4"/>
+
+    </Style>
+
+    <!-- ========================================================= -->
+    <!-- Top Menu Item -->
+    <!-- ========================================================= -->
+
+    <Style x:Key="GarageMenuItem"
+           TargetType="MenuItem">
+
+        <Setter Property="FontFamily"
+                Value="Segoe UI"/>
+
+        <Setter Property="FontSize"
+                Value="13"/>
+
+        <Setter Property="FontWeight"
+                Value="SemiBold"/>
+
+        <Setter Property="Padding"
+                Value="14,8"/>
+
+        <Setter Property="Foreground"
+                Value="White"/>
+
+        <Setter Property="Background"
+                Value="Transparent"/>
+
+        <Setter Property="BorderThickness"
+                Value="0"/>
+
+        <Style.Triggers>
+
+            <!-- Hover -->
+
+            <Trigger Property="IsHighlighted"
+                     Value="True">
+
+                <Setter Property="Background"
+                        Value="{StaticResource MenuHoverBrush}"/>
+
+            </Trigger>
+
+            <!-- Disabled -->
+
+            <Trigger Property="IsEnabled"
+                     Value="False">
+
+                <Setter Property="Opacity"
+                        Value="0.50"/>
+
+            </Trigger>
+
+        </Style.Triggers>
+
+    </Style>
+
+    <!-- ========================================================= -->
+    <!-- Sub Menu -->
+    <!-- ========================================================= -->
+
+    <Style x:Key="GarageSubMenuItem"
+           TargetType="MenuItem"
+           BasedOn="{StaticResource GarageMenuItem}">
+
+        <Setter Property="Foreground"
+                Value="{StaticResource TextPrimaryBrush}"/>
+
+        <Setter Property="Background"
+                Value="White"/>
+
+        <Setter Property="Padding"
+                Value="18,8"/>
+
+    </Style>
+
+</ResourceDictionary>
