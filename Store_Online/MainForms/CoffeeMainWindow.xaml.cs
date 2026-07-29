@@ -1,9 +1,9 @@
 using System.Windows;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using Store_Online.Core.Helpers;
 using Store_Online.Core.Localization;
 using Store_Online.Modules.Coffee.Pages;
+using Store_Online.Shared.Helpers;
 namespace Store_Online.MainForms
 {
     public partial class CoffeeMainWindow : Window

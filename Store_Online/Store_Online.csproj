@@ -95,11 +95,13 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<Folder Include="Modules\Coffee\ViewModels\" />
 		<Folder Include="Modules\Garage\Dialogs\" />
+		<Folder Include="Modules\Garage\Services\" />
+		<Folder Include="Modules\Garage\ViewModels\" />
 		<Folder Include="Modules\Hotel\" />
 		<Folder Include="Resources\Images\" />
 		<Folder Include="Resources\Icons\" />
-		<Folder Include="Views\" />
 	</ItemGroup>
 
 	<ItemGroup>

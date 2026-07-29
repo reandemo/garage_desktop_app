@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Store_Online.Authentication;
 using Store_Online.Core.Configuration;
 using Store_Online.Core.Database;
+using Store_Online.Core.Interfaces;
 using Store_Online.Core.Localization;
 using Store_Online.Core.Logging;
 using Store_Online.Core.Security;
@@ -40,6 +41,10 @@ namespace Store_Online
 
         private static void ConfigureServices(IServiceCollection services)
         {
+            string xmlPath = Path.Combine(
+                AppDomain.CurrentDomain.BaseDirectory,
+                "sys.xml");
+
             services.AddSingleton(new EncryptionOptions
             {
                 Password = "StoreOnline2026@Password",
@@ -48,65 +53,38 @@ namespace Store_Online
                 Iterations = 100000
             });
 
-            services.AddSingleton<IEncryptionService>(provider =>
-            {
-                EncryptionOptions options =
-                    provider.GetRequiredService<EncryptionOptions>();
-
-                return new EncryptionService(options);
-            });
-
+            services.AddSingleton<IEncryptionService, EncryptionService>();
             services.AddSingleton<ConfigurationService>();
-
             services.AddSingleton<XmlDatabaseReader>();
-
-            string xmlPath = Path.Combine(
-                AppDomain.CurrentDomain.BaseDirectory,
-                "sys.xml");
-
-            services.AddSingleton<DatabaseSettings>(provider =>
-            {
-                if (!File.Exists(xmlPath))
-                {
-                    throw new FileNotFoundException(
-                        $"Cannot find configuration file:\n{xmlPath}");
-                }
-
-                XmlDatabaseReader reader =
-                    provider.GetRequiredService<XmlDatabaseReader>();
-
-                return reader.Load(xmlPath);
-            });
 
             services.AddSingleton(provider =>
             {
-                DatabaseSettings settings =
-                    provider.GetRequiredService<DatabaseSettings>();
+                if (!File.Exists(xmlPath))
+                    throw new FileNotFoundException(
+                        $"Configuration file not found:{Environment.NewLine}{xmlPath}");
 
-                return new DbConnectionFactory(settings.ConnectionString);
+                return provider
+                    .GetRequiredService<XmlDatabaseReader>()
+                    .Load(xmlPath);
             });
 
-            services.AddSingleton<SqlExecutor>();
+            services.AddSingleton(provider =>
+                new DbConnectionFactory(
+                    provider.GetRequiredService<DatabaseSettings>().ConnectionString));
 
+            services.AddSingleton<SqlExecutor>();
             services.AddSingleton<CustomerRepository>();
             services.AddSingleton<LanguageRepository>();
-
-
             services.AddSingleton<LoginHistoryService>();
+            services.AddSingleton<DatabaseLogger>();
 
             services.AddSingleton<ApiService>();
-
             services.AddSingleton<IApiService>(provider =>
                 provider.GetRequiredService<ApiService>());
 
             services.AddTransient<ProductService>();
-            services.AddSingleton<DatabaseLogger>();
-
             services.AddSingleton<Login>();
-
             services.AddTransient<GarageCustomerRegistration>();
-            services.AddTransient<CustomerRepository>();
-
         }
     }
 }

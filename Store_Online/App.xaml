@@ -12,72 +12,47 @@
 
             <ResourceDictionary.MergedDictionaries>
 
-                <!--  =====================================================  -->
-                <!--  Material Design Theme  -->
-                <!--  =====================================================  -->
-
+                <!--  Material  -->
                 <materialDesign:BundledTheme
                     BaseTheme="Light"
                     PrimaryColor="Blue"
                     SecondaryColor="Lime" />
 
+                <!--  Foundation  -->
+                <ResourceDictionary Source="/Shared/Styles/Colors.xaml" />
+                <ResourceDictionary Source="/Shared/Styles/GarageColors.xaml" />
+                <ResourceDictionary Source="/Shared/Styles/GarageBrushes.xaml" />
+                <ResourceDictionary Source="/Shared/Styles/GarageTypography.xaml" />
 
-
-                <!--  =====================================================  -->
-                <!--  REAN Theme  -->
-                <!--  =====================================================  -->
-
+                <!--  Rean Theme  -->
                 <ResourceDictionary Source="/Shared/UI/Themes/Fonts.xaml" />
-                <ResourceDictionary Source="/Shared/UI/Themes/Colors.xaml" />
-                <ResourceDictionary Source="/Shared/UI/Themes/Brushes.xaml" />
                 <ResourceDictionary Source="/Shared/UI/Themes/Typography.xaml" />
                 <ResourceDictionary Source="/Shared/UI/Themes/Shadows.xaml" />
                 <ResourceDictionary Source="/Shared/UI/Themes/Icons.xaml" />
 
-                <!--  =====================================================  -->
-                <!--  Custom Controls  -->
-                <!--  =====================================================  -->
-
+                <!--  Controls  -->
                 <ResourceDictionary Source="/Shared/UI/Themes/Generic.xaml" />
                 <ResourceDictionary Source="/Shared/UI/Themes/Buttons.xaml" />
-                <ResourceDictionary Source="/Shared/UI/Themes/Cards.xaml" />
                 <ResourceDictionary Source="/Shared/UI/Themes/TextBoxes.xaml" />
                 <ResourceDictionary Source="/Shared/UI/Themes/ComboBoxes.xaml" />
 
-                <!-- Foundation -->
-                <!-- Foundation -->
-                <ResourceDictionary Source="/Shared/Styles/GarageColors.xaml"/>
-                <ResourceDictionary Source="/Shared/Styles/GarageBrushes.xaml"/>
-                <ResourceDictionary Source="/Shared/Styles/GarageTypography.xaml"/>
+                <!--  Garage  -->
+                <ResourceDictionary Source="/Shared/Styles/GarageButtonStyle.xaml" />
+                <ResourceDictionary Source="/Shared/Styles/GarageTextBoxStyle.xaml" />
+                <ResourceDictionary Source="/Shared/Styles/GarageComboBoxStyle.xaml" />
+                <ResourceDictionary Source="/Shared/Styles/GarageCardStyle.xaml" />
+                <ResourceDictionary Source="/Shared/Styles/GarageDataGridStyle.xaml" />
+                <ResourceDictionary Source="/Shared/Styles/GarageMenuStyle.xaml" />
+                <ResourceDictionary Source="/Shared/Styles/GarageDialogStyle.xaml" />
+                <ResourceDictionary Source="/Shared/Styles/GarageWindowStyle.xaml" />
 
-                <!-- Controls -->
-                <ResourceDictionary Source="/Shared/Styles/GarageButtonStyle.xaml"/>
-                <ResourceDictionary Source="/Shared/Styles/GarageTextBoxStyle.xaml"/>
-                <ResourceDictionary Source="/Shared/Styles/GarageComboBoxStyle.xaml"/>
-                <ResourceDictionary Source="/Shared/Styles/GarageCardStyle.xaml"/>
-                <ResourceDictionary Source="/Shared/Styles/GarageDataGridStyle.xaml"/>
-                <ResourceDictionary Source="/Shared/Styles/GarageMenuStyle.xaml"/>
-                <ResourceDictionary Source="/Shared/Styles/GarageDialogStyle.xaml"/>
-                <ResourceDictionary Source="/Shared/Styles/GarageWindowStyle.xaml"/>
-
-
-
-
-                <!--  =====================================================  -->
-                <!--  Material Design Components  -->
-                <!--  =====================================================  -->
-
+                <!--  Material Components  -->
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
-
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.PopupBox.xaml" />
-
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.DialogHost.xaml" />
-
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesign3.Defaults.xaml" />
 
                 <ResourceDictionary Source="/Store_Online;component/Core/Styles/GarageMenuStyles.xaml" />
-
-
 
 
             </ResourceDictionary.MergedDictionaries>

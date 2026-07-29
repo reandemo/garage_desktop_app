@@ -2,12 +2,14 @@ namespace Store_Online.Core.Interfaces
 {
     public interface IApiService
     {
+        string? Token { get; set; }
+
         Task<T?> GetAsync<T>(string endpoint);
 
         Task<T?> PostAsync<T>(string endpoint, object data);
 
-        Task<bool> PutAsync(string endpoint, object data);
+        Task<T?> PutAsync<T>(string endpoint, object data);
 
-        Task<bool> DeleteAsync(string endpoint);
+        Task<T?> DeleteAsync<T>(string endpoint);
     }
 }

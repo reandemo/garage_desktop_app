@@ -1,6 +1,5 @@
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media;
 
 namespace Store_Online.Shared.UI.Controls;
 
@@ -20,28 +19,11 @@ public class ReanButton : Button
 
     protected override void OnClick()
     {
-        if (IsBusy)
+        if (!IsEnabled || IsBusy)
             return;
 
         base.OnClick();
     }
-
-    #region Text
-
-    public string Text
-    {
-        get => (string)GetValue(TextProperty);
-        set => SetValue(TextProperty, value);
-    }
-
-    public static readonly DependencyProperty TextProperty =
-        DependencyProperty.Register(
-            nameof(Text),
-            typeof(string),
-            typeof(ReanButton),
-            new PropertyMetadata(string.Empty));
-
-    #endregion
 
     #region Glyph
 
@@ -111,45 +93,20 @@ public class ReanButton : Button
 
     #endregion
 
-    #region IconSize
+    #region IconPlacement
 
-    public double IconSize
+    public IconPlacement IconPlacement
     {
-        get => (double)GetValue(IconSizeProperty);
-        set => SetValue(IconSizeProperty, value);
+        get => (IconPlacement)GetValue(IconPlacementProperty);
+        set => SetValue(IconPlacementProperty, value);
     }
 
-    public static readonly DependencyProperty IconSizeProperty =
+    public static readonly DependencyProperty IconPlacementProperty =
         DependencyProperty.Register(
-            nameof(IconSize),
-            typeof(double),
+            nameof(IconPlacement),
+            typeof(IconPlacement),
             typeof(ReanButton),
-            new FrameworkPropertyMetadata(
-                16.0,
-                FrameworkPropertyMetadataOptions.AffectsRender),
-            ValidateIconSize);
-
-    private static bool ValidateIconSize(object value)
-    {
-        return (double)value >= 0;
-    }
-
-    #endregion
-
-    #region IconBrush
-
-    public Brush IconBrush
-    {
-        get => (Brush)GetValue(IconBrushProperty);
-        set => SetValue(IconBrushProperty, value);
-    }
-
-    public static readonly DependencyProperty IconBrushProperty =
-        DependencyProperty.Register(
-            nameof(IconBrush),
-            typeof(Brush),
-            typeof(ReanButton),
-            new PropertyMetadata(Brushes.White));
+            new PropertyMetadata(IconPlacement.Left));
 
     #endregion
 
@@ -178,5 +135,17 @@ public enum ReanButtonType
     Success,
     Warning,
     Danger,
-    Outline
+    Info,
+    Light,
+    Dark,
+    Outline,
+    Link
+}
+
+public enum IconPlacement
+{
+    Left,
+    Right,
+    Top,
+    Bottom
 }

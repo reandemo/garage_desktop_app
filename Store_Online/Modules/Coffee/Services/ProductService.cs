@@ -1,4 +1,4 @@
-using Store_Online.Core.Services;
+using Store_Online.Core.Interfaces;
 using Store_Online.Modules.Coffee.Models;
 
 namespace Store_Online.Modules.Coffee.Services;

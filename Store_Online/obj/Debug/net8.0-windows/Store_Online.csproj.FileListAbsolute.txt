@@ -174,7 +174,6 @@ D:\_Dev_DeskApp\Store_Online\Store_Online\obj\Debug\net8.0-windows\Shared\Contro
 D:\_Dev_DeskApp\Store_Online\Store_Online\obj\Debug\net8.0-windows\Shared\Controls\GarageEmptyView.baml
 D:\_Dev_DeskApp\Store_Online\Store_Online\obj\Debug\net8.0-windows\Shared\Controls\GarageFilterPanel.baml
 D:\_Dev_DeskApp\Store_Online\Store_Online\obj\Debug\net8.0-windows\Shared\Controls\GarageFooter.baml
-D:\_Dev_DeskApp\Store_Online\Store_Online\obj\Debug\net8.0-windows\Shared\Controls\GarageHeader.baml
 D:\_Dev_DeskApp\Store_Online\Store_Online\obj\Debug\net8.0-windows\Shared\Controls\GarageInfoPanel.baml
 D:\_Dev_DeskApp\Store_Online\Store_Online\obj\Debug\net8.0-windows\Shared\Controls\GarageLoading.baml
 D:\_Dev_DeskApp\Store_Online\Store_Online\obj\Debug\net8.0-windows\Shared\Controls\GarageNotification.baml
@@ -210,10 +209,7 @@ D:\_Dev_DeskApp\Store_Online\Store_Online\obj\Debug\net8.0-windows\Shared\Styles
 D:\_Dev_DeskApp\Store_Online\Store_Online\obj\Debug\net8.0-windows\Shared\Styles\GarageTextBoxStyle.baml
 D:\_Dev_DeskApp\Store_Online\Store_Online\obj\Debug\net8.0-windows\Shared\Styles\GarageTypography.baml
 D:\_Dev_DeskApp\Store_Online\Store_Online\obj\Debug\net8.0-windows\Shared\Styles\GarageWindowStyle.baml
-D:\_Dev_DeskApp\Store_Online\Store_Online\obj\Debug\net8.0-windows\Shared\UI\Themes\Brushes.baml
 D:\_Dev_DeskApp\Store_Online\Store_Online\obj\Debug\net8.0-windows\Shared\UI\Themes\Buttons.baml
-D:\_Dev_DeskApp\Store_Online\Store_Online\obj\Debug\net8.0-windows\Shared\UI\Themes\Cards.baml
-D:\_Dev_DeskApp\Store_Online\Store_Online\obj\Debug\net8.0-windows\Shared\UI\Themes\Colors.baml
 D:\_Dev_DeskApp\Store_Online\Store_Online\obj\Debug\net8.0-windows\Shared\UI\Themes\ComboBoxes.baml
 D:\_Dev_DeskApp\Store_Online\Store_Online\obj\Debug\net8.0-windows\Shared\UI\Themes\Fonts.baml
 D:\_Dev_DeskApp\Store_Online\Store_Online\obj\Debug\net8.0-windows\Shared\UI\Themes\Icons.baml
@@ -257,7 +253,6 @@ D:\_Dev_DeskApp\Store_Online\Store_Online\obj\Debug\net8.0-windows\Shared\Contro
 D:\_Dev_DeskApp\Store_Online\Store_Online\obj\Debug\net8.0-windows\Shared\Controls\GarageEmptyView.g.cs
 D:\_Dev_DeskApp\Store_Online\Store_Online\obj\Debug\net8.0-windows\Shared\Controls\GarageFilterPanel.g.cs
 D:\_Dev_DeskApp\Store_Online\Store_Online\obj\Debug\net8.0-windows\Shared\Controls\GarageFooter.g.cs
-D:\_Dev_DeskApp\Store_Online\Store_Online\obj\Debug\net8.0-windows\Shared\Controls\GarageHeader.g.cs
 D:\_Dev_DeskApp\Store_Online\Store_Online\obj\Debug\net8.0-windows\Shared\Controls\GarageInfoPanel.g.cs
 D:\_Dev_DeskApp\Store_Online\Store_Online\obj\Debug\net8.0-windows\Shared\Controls\GarageLoading.g.cs
 D:\_Dev_DeskApp\Store_Online\Store_Online\obj\Debug\net8.0-windows\Shared\Controls\GarageNotification.g.cs

@@ -8,9 +8,92 @@ namespace Store_Online.Shared.Services
         private static Window? _loadingWindow;
         private static LoadingDialog? _loadingDialog;
 
-        #region Alert
+        public static void Information(
+            string message,
+            string title = "Store Online")
+        {
+            MessageBox.Show(
+                message,
+                title,
+                MessageBoxButton.OK,
+                MessageBoxImage.Information);
+        }
 
-        public static bool ShowAlert(string title, string message)
+        public static void Warning(
+            string message,
+            string title = "Store Online")
+        {
+            MessageBox.Show(
+                message,
+                title,
+                MessageBoxButton.OK,
+                MessageBoxImage.Warning);
+        }
+
+        public static void Error(
+            string message,
+            string title = "Store Online")
+        {
+            MessageBox.Show(
+                message,
+                title,
+                MessageBoxButton.OK,
+                MessageBoxImage.Error);
+        }
+
+        public static void Error(
+            Exception exception,
+            string title = "Store Online")
+        {
+            if (exception == null)
+                return;
+
+            MessageBox.Show(
+                exception.Message,
+                title,
+                MessageBoxButton.OK,
+                MessageBoxImage.Error);
+        }
+
+        public static bool Confirm(
+            string message,
+            string title = "Store Online")
+        {
+            return MessageBox.Show(
+                message,
+                title,
+                MessageBoxButton.YesNo,
+                MessageBoxImage.Question)
+                == MessageBoxResult.Yes;
+        }
+
+        public static MessageBoxResult ConfirmCancel(
+            string message,
+            string title = "Store Online")
+        {
+            return MessageBox.Show(
+                message,
+                title,
+                MessageBoxButton.YesNoCancel,
+                MessageBoxImage.Question);
+        }
+
+        public static MessageBoxResult Show(
+            string message,
+            string title,
+            MessageBoxButton buttons,
+            MessageBoxImage icon)
+        {
+            return MessageBox.Show(
+                message,
+                title,
+                buttons,
+                icon);
+        }
+
+        public static bool ShowAlert(
+            string title,
+            string message)
         {
             var dialog = new AlertDialog
             {
@@ -29,11 +112,9 @@ namespace Store_Online.Shared.Services
             return window.ShowDialog() == true;
         }
 
-        #endregion
-
-        #region Confirm
-
-        public static bool ShowConfirm(string title, string message)
+        public static bool ShowConfirm(
+            string title,
+            string message)
         {
             bool result = false;
 
@@ -64,11 +145,9 @@ namespace Store_Online.Shared.Services
             return result;
         }
 
-        #endregion
-
-        #region Input
-
-        public static string? ShowInput(string title, string message)
+        public static string? ShowInput(
+            string title,
+            string message)
         {
             string? value = null;
 
@@ -98,11 +177,9 @@ namespace Store_Online.Shared.Services
             return value;
         }
 
-        #endregion
-
-        #region Password
-
-        public static string? ShowPassword(string title, string message)
+        public static string? ShowPassword(
+            string title,
+            string message)
         {
             string? password = null;
 
@@ -132,12 +209,9 @@ namespace Store_Online.Shared.Services
             return password;
         }
 
-        #endregion
-
-        #region Loading
-
-        public static void ShowLoading(string title = "Loading",
-                                       string message = "Please wait...")
+        public static void ShowLoading(
+            string title = "Loading",
+            string message = "Please wait...")
         {
             if (_loadingWindow != null)
                 return;
@@ -153,7 +227,8 @@ namespace Store_Online.Shared.Services
             _loadingWindow.Show();
         }
 
-        public static void UpdateLoading(string message)
+        public static void UpdateLoading(
+            string message)
         {
             if (_loadingDialog != null)
                 _loadingDialog.Message = message;
@@ -170,12 +245,9 @@ namespace Store_Online.Shared.Services
             _loadingDialog = null;
         }
 
-        #endregion
-
-        #region Progress
-
-        public static ProgressDialog CreateProgress(string title,
-                                                    string message)
+        public static ProgressDialog CreateProgress(
+            string title,
+            string message)
         {
             return new ProgressDialog
             {
@@ -184,11 +256,8 @@ namespace Store_Online.Shared.Services
             };
         }
 
-        #endregion
-
-        #region Window
-
-        private static Window CreateWindow(UIElement content)
+        private static Window CreateWindow(
+            UIElement content)
         {
             return new Window
             {
@@ -202,7 +271,5 @@ namespace Store_Online.Shared.Services
                 ShowInTaskbar = false
             };
         }
-
-        #endregion
     }
 }

@@ -1,10 +1,10 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
+using Store_Online.Core.Services;
 using Store_Online.Models;
 using Store_Online.Modules.Garage.Models;
 using Store_Online.Modules.Garage.Repositories;
-using Store_Online.Shared.Services;
 
 namespace Store_Online.Modules.Garage.Pages
 {

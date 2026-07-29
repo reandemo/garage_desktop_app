@@ -58,10 +58,8 @@
           }
         }
       },
-      "Microsoft.CodeAnalysis.Analyzers/5.3.0": {},
       "Microsoft.CodeAnalysis.Common/5.6.0": {
         "dependencies": {
-          "Microsoft.CodeAnalysis.Analyzers": "5.3.0",
           "System.Collections.Immutable": "10.0.1",
           "System.Reflection.Metadata": "10.0.1"
         },
@@ -115,7 +113,6 @@
       },
       "Microsoft.CodeAnalysis.CSharp/5.6.0": {
         "dependencies": {
-          "Microsoft.CodeAnalysis.Analyzers": "5.3.0",
           "Microsoft.CodeAnalysis.Common": "5.6.0",
           "System.Collections.Immutable": "10.0.1",
           "System.Reflection.Metadata": "10.0.1"
@@ -171,7 +168,6 @@
       "Microsoft.CodeAnalysis.CSharp.Workspaces/5.6.0": {
         "dependencies": {
           "Humanizer.Core": "2.14.1",
-          "Microsoft.CodeAnalysis.Analyzers": "5.3.0",
           "Microsoft.CodeAnalysis.CSharp": "5.6.0",
           "Microsoft.CodeAnalysis.Common": "5.6.0",
           "Microsoft.CodeAnalysis.Workspaces.Common": "5.6.0",
@@ -231,7 +227,6 @@
       "Microsoft.CodeAnalysis.Workspaces.Common/5.6.0": {
         "dependencies": {
           "Humanizer.Core": "2.14.1",
-          "Microsoft.CodeAnalysis.Analyzers": "5.3.0",
           "Microsoft.CodeAnalysis.Common": "5.6.0",
           "System.Collections.Immutable": "10.0.1",
           "System.Composition": "10.0.1",
@@ -1129,13 +1124,6 @@
       "sha512": "sha512-Y3t/c7C5XHJGFDnohjf1/9SYF3ZOfEU1fkNQuKg/dGf9hN18yrQj2owHITGfNS3+lKJdW6J4vY98jYu57jCO8A==",
       "path": "microsoft.bcl.cryptography/8.0.0",
       "hashPath": "microsoft.bcl.cryptography.8.0.0.nupkg.sha512"
-    },
-    "Microsoft.CodeAnalysis.Analyzers/5.3.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-KuLhbZwB0L8JikL86AE5VWEp3RLNjIcp+j8yz9EJ/UBgRz4+qDEjHg/tluRFbpYpD/e37BqaaNFbQ0vqawBwWQ==",
-      "path": "microsoft.codeanalysis.analyzers/5.3.0",
-      "hashPath": "microsoft.codeanalysis.analyzers.5.3.0.nupkg.sha512"
     },
     "Microsoft.CodeAnalysis.Common/5.6.0": {
       "type": "package",

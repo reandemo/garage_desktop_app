@@ -1,6 +1,6 @@
+using System.Data;
 using Microsoft.Data.SqlClient;
 using Store_Online.Core.Logging;
-using System.Data;
 
 namespace Store_Online.Core.Database
 {
@@ -25,6 +25,7 @@ namespace Store_Online.Core.Database
             CommandType commandType,
             SqlParameter[]? parameters)
         {
+            ArgumentNullException.ThrowIfNull(connection);
             ArgumentException.ThrowIfNullOrWhiteSpace(sql);
 
             SqlCommand command = new(sql, connection)
@@ -35,7 +36,14 @@ namespace Store_Online.Core.Database
 
             if (parameters is { Length: > 0 })
             {
-                command.Parameters.AddRange(parameters);
+                foreach (SqlParameter parameter in parameters)
+                {
+                    if (parameter is null)
+                        continue;
+
+                    command.Parameters.Add(
+                        (SqlParameter)((ICloneable)parameter).Clone());
+                }
             }
 
             return command;
@@ -167,7 +175,7 @@ namespace Store_Online.Core.Database
 
                 object? result = command.ExecuteScalar();
 
-                if (result == null || result == DBNull.Value)
+                if (result is null || result == DBNull.Value)
                     return default;
 
                 Type targetType =
@@ -255,6 +263,48 @@ namespace Store_Online.Core.Database
             {
                 Value = value ?? DBNull.Value
             };
+        }
+
+        public static SqlParameter OutputParameter(
+            string name,
+            SqlDbType type,
+            int size = 0)
+        {
+            ArgumentException.ThrowIfNullOrWhiteSpace(name);
+
+            SqlParameter parameter = new(name, type)
+            {
+                Direction = ParameterDirection.Output
+            };
+
+            if (size > 0)
+            {
+                parameter.Size = size;
+            }
+
+            return parameter;
+        }
+
+        public static SqlParameter InputOutputParameter(
+            string name,
+            object? value,
+            SqlDbType type,
+            int size = 0)
+        {
+            ArgumentException.ThrowIfNullOrWhiteSpace(name);
+
+            SqlParameter parameter = new(name, type)
+            {
+                Direction = ParameterDirection.InputOutput,
+                Value = value ?? DBNull.Value
+            };
+
+            if (size > 0)
+            {
+                parameter.Size = size;
+            }
+
+            return parameter;
         }
 
         #endregion

@@ -1,8 +1,9 @@
-using Newtonsoft.Json;
-using Store_Online.Models;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
+using Newtonsoft.Json;
+using Store_Online.Core.Interfaces;
+using Store_Online.Models;
 
 namespace Store_Online.Core.Services
 {

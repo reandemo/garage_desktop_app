@@ -30,6 +30,7 @@
                 <TextBlock Margin="0,5,0,0"
                            Foreground="Gray"
                            Text="Test all ReanButton styles and features."/>
+
             </StackPanel>
 
             <!-- Button Types -->
@@ -43,7 +44,7 @@
                     <ui:ReanButton Width="140"
                                    Height="45"
                                    Margin="5"
-                                   Text="Primary"
+                                   Content="Primary"
                                    Glyph="✓"
                                    ButtonType="Primary"
                                    Click="Button_Click"/>
@@ -51,7 +52,7 @@
                     <ui:ReanButton Width="140"
                                    Height="45"
                                    Margin="5"
-                                   Text="Secondary"
+                                   Content="Secondary"
                                    Glyph="⚙"
                                    ButtonType="Secondary"
                                    Click="Button_Click"/>
@@ -59,7 +60,7 @@
                     <ui:ReanButton Width="140"
                                    Height="45"
                                    Margin="5"
-                                   Text="Success"
+                                   Content="Success"
                                    Glyph="✔"
                                    ButtonType="Success"
                                    Click="Button_Click"/>
@@ -67,7 +68,7 @@
                     <ui:ReanButton Width="140"
                                    Height="45"
                                    Margin="5"
-                                   Text="Warning"
+                                   Content="Warning"
                                    Glyph="⚠"
                                    ButtonType="Warning"
                                    Click="Button_Click"/>
@@ -75,7 +76,7 @@
                     <ui:ReanButton Width="140"
                                    Height="45"
                                    Margin="5"
-                                   Text="Danger"
+                                   Content="Danger"
                                    Glyph="✖"
                                    ButtonType="Danger"
                                    Click="Button_Click"/>
@@ -83,9 +84,41 @@
                     <ui:ReanButton Width="140"
                                    Height="45"
                                    Margin="5"
-                                   Text="Outline"
+                                   Content="Info"
+                                   Glyph="ℹ"
+                                   ButtonType="Info"
+                                   Click="Button_Click"/>
+
+                    <ui:ReanButton Width="140"
+                                   Height="45"
+                                   Margin="5"
+                                   Content="Light"
+                                   Glyph="☀"
+                                   ButtonType="Light"
+                                   Click="Button_Click"/>
+
+                    <ui:ReanButton Width="140"
+                                   Height="45"
+                                   Margin="5"
+                                   Content="Dark"
+                                   Glyph="🌙"
+                                   ButtonType="Dark"
+                                   Click="Button_Click"/>
+
+                    <ui:ReanButton Width="140"
+                                   Height="45"
+                                   Margin="5"
+                                   Content="Outline"
                                    Glyph="□"
                                    ButtonType="Outline"
+                                   Click="Button_Click"/>
+
+                    <ui:ReanButton Width="140"
+                                   Height="45"
+                                   Margin="5"
+                                   Content="Link"
+                                   Glyph="🔗"
+                                   ButtonType="Link"
                                    Click="Button_Click"/>
 
                 </WrapPanel>
@@ -104,7 +137,7 @@
                                    Width="180"
                                    Height="45"
                                    Margin="5"
-                                   Text="Save Order"
+                                   Content="Save Order"
                                    BusyText="Saving..."
                                    Glyph="💾"
                                    ButtonType="Success"
@@ -126,8 +159,6 @@
                            Text="Click any button..." />
 
             </GroupBox>
-
-
 
         </Grid>
 
